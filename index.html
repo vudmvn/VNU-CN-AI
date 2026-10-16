@@ -47,7 +47,7 @@
 
     /* Container */
     .container {
-      max-width: 1280px;
+      max-width: 1240px;
       margin: 0 auto;
       padding: 0 24px;
     }
@@ -100,7 +100,7 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 22px;
+      gap: 24px;
     }
     .nav-links a {
       font-size: 14px;
@@ -111,11 +111,6 @@
     .nav-links a:hover {
       color: var(--blue);
       text-decoration: none;
-    }
-    .nav-cta {
-      display: flex;
-      align-items: center;
-      gap: 10px;
     }
 
     /* Buttons */
@@ -151,16 +146,8 @@
       background: var(--pale);
       border-color: var(--blue);
     }
-    .btn.secondary {
-      background: var(--teal);
-      box-shadow: 0 4px 14px rgba(0, 154, 145, .2);
-    }
-    .btn.secondary:hover {
-      background: #00827b;
-      box-shadow: 0 8px 22px rgba(0, 154, 145, .3);
-    }
     .btn.sm {
-      padding: 7px 13px;
+      padding: 8px 14px;
       font-size: 13px;
       border-radius: 9px;
     }
@@ -185,7 +172,6 @@
     }
     .badge.blue { background: #e8f1ff; color: var(--blue); }
     .badge.teal { background: var(--teal-light); color: var(--teal); }
-    .badge.gold { background: var(--gold-light); color: #9c6c06; }
     .badge.green { background: var(--green-light); color: var(--green); }
 
     /* Hero */
@@ -193,7 +179,7 @@
       margin-top: 26px;
       background: linear-gradient(132deg, #0e223f 0%, #134ea0 55%, #0e7d8d 100%);
       border-radius: 28px;
-      padding: clamp(34px, 5vw, 64px);
+      padding: clamp(34px, 5vw, 60px);
       color: #fff;
       box-shadow: var(--shadow);
       position: relative;
@@ -227,17 +213,17 @@
       border: 1px solid rgba(255, 255, 255, 0.2);
     }
     .hero h1 {
-      font-size: clamp(32px, 3.8vw, 52px);
+      font-size: clamp(30px, 3.8vw, 48px);
       font-weight: 900;
       letter-spacing: -.03em;
       margin-bottom: 16px;
       color: #ffffff;
     }
     .hero p {
-      font-size: 17px;
+      font-size: 16.5px;
       color: #dbeaff;
       max-width: 620px;
-      margin-bottom: 28px;
+      margin-bottom: 26px;
     }
     .hero-actions {
       display: flex;
@@ -282,7 +268,7 @@
     }
     .hero-visual svg {
       width: 100%;
-      max-width: 420px;
+      max-width: 380px;
       height: auto;
       filter: drop-shadow(0 18px 30px rgba(0, 0, 0, .25));
     }
@@ -292,13 +278,13 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 18px;
-      margin: 28px 0 45px;
+      margin: 28px 0 40px;
     }
     .metric-card {
       background: var(--paper);
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 22px 24px;
+      padding: 20px 22px;
       box-shadow: var(--shadow-sm);
       display: flex;
       align-items: center;
@@ -310,17 +296,17 @@
       box-shadow: var(--shadow);
     }
     .metric-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 15px;
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
       display: grid;
       place-items: center;
-      font-size: 26px;
+      font-size: 24px;
       flex-shrink: 0;
     }
     .metric-card b {
       display: block;
-      font-size: 27px;
+      font-size: 26px;
       font-weight: 900;
       color: var(--ink);
       line-height: 1.1;
@@ -333,17 +319,17 @@
 
     /* Section Headers */
     .section-head {
-      margin-bottom: 28px;
+      margin-bottom: 26px;
     }
     .section-head .eyebrow {
       margin-bottom: 8px;
     }
     .section-head h2 {
-      font-size: clamp(26px, 2.5vw, 36px);
+      font-size: clamp(24px, 2.4vw, 34px);
       color: var(--ink);
     }
     .section-head p {
-      font-size: 16px;
+      font-size: 15.5px;
       color: var(--muted);
       max-width: 720px;
     }
@@ -353,8 +339,8 @@
       background: var(--paper);
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 26px 30px;
-      margin-bottom: 40px;
+      padding: 24px 28px;
+      margin-bottom: 36px;
       box-shadow: var(--shadow-sm);
       display: flex;
       align-items: center;
@@ -364,7 +350,7 @@
     }
     .progress-info {
       flex: 1;
-      min-width: 280px;
+      min-width: 260px;
     }
     .progress-info h3 {
       font-size: 18px;
@@ -380,7 +366,7 @@
     }
     .progress-bar-wrap {
       flex: 1.2;
-      min-width: 280px;
+      min-width: 260px;
     }
     .progress-bar-top {
       display: flex;
@@ -397,7 +383,7 @@
     }
     .progress-fill {
       height: 100%;
-      width: 20%;
+      width: 50%;
       background: linear-gradient(90deg, #155bd5, #009a91);
       border-radius: 20px;
       transition: width .4s ease;
@@ -406,8 +392,8 @@
     /* Course Modules Grid */
     .modules-grid {
       display: grid;
-      gap: 22px;
-      margin-bottom: 50px;
+      gap: 24px;
+      margin-bottom: 45px;
     }
     .module-card {
       background: var(--paper);
@@ -485,101 +471,48 @@
       font-size: 15px;
       color: var(--muted);
       margin-bottom: 16px;
+      line-height: 1.6;
     }
-    .topic-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
+    .subtopics-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
       margin-bottom: 18px;
     }
-    .topic-pill {
-      font-size: 13px;
-      font-weight: 600;
-      background: #f1f5fa;
-      color: #3b516c;
-      padding: 5px 12px;
-      border-radius: 8px;
-      border: 1px solid #e1ebf4;
+    .subtopic-item {
+      background: #f8fbfe;
+      border: 1px solid #e2ebf4;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 13.5px;
+      color: #244160;
+    }
+    .subtopic-item b {
+      color: var(--blue);
+      display: inline-block;
+      margin-right: 5px;
     }
     .module-actions {
       display: flex;
       flex-direction: column;
       gap: 10px;
-      min-width: 210px;
+      min-width: 215px;
       justify-content: center;
     }
 
-    /* Course Highlights & Interactive Sections */
+    /* Two Columns Section */
     .two-cols {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 25px;
-      margin-bottom: 50px;
+      margin-bottom: 45px;
     }
     .card {
       background: var(--paper);
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 30px;
+      padding: 28px;
       box-shadow: var(--shadow-sm);
-    }
-
-    /* Interactive Prompt Generator */
-    .prompt-box {
-      background: #f7faff;
-      border: 1px solid #d4e5f7;
-      border-radius: 14px;
-      padding: 18px;
-      margin-top: 16px;
-    }
-    .prompt-form {
-      display: grid;
-      gap: 12px;
-    }
-    .prompt-form label {
-      font-size: 13px;
-      font-weight: 750;
-      color: #27415e;
-      display: block;
-      margin-bottom: 4px;
-    }
-    .form-control {
-      width: 100%;
-      padding: 10px 13px;
-      border: 1px solid #bdd1e6;
-      border-radius: 9px;
-      background: #fff;
-      font-size: 14px;
-      color: var(--ink);
-    }
-    .form-control:focus {
-      outline: none;
-      border-color: var(--blue);
-      box-shadow: 0 0 0 3px rgba(21, 91, 213, .15);
-    }
-    .prompt-output {
-      margin-top: 14px;
-      background: #fff;
-      border: 1px dashed #9bc3eb;
-      border-radius: 10px;
-      padding: 14px;
-      font-size: 13px;
-      font-family: monospace;
-      color: #1a3c63;
-      white-space: pre-wrap;
-      position: relative;
-    }
-    .copy-btn {
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      padding: 4px 9px;
-      font-size: 11px;
-      border-radius: 6px;
-      border: 1px solid #c2d8f0;
-      background: #f3f8fe;
-      color: var(--blue);
-      font-weight: 700;
     }
 
     /* Grade Calculator */
@@ -618,6 +551,25 @@
       color: var(--blue);
     }
 
+    /* Quick Checklist */
+    .checklist-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 11px 0;
+      border-bottom: 1px solid #edf2f7;
+      font-size: 14px;
+    }
+    .checklist-item:last-child {
+      border: none;
+    }
+    .checklist-item input {
+      margin-top: 3px;
+      accent-color: var(--blue);
+      width: 17px;
+      height: 17px;
+    }
+
     /* Table */
     .table-responsive {
       overflow-x: auto;
@@ -643,56 +595,20 @@
       border-bottom: none;
     }
 
-    /* Tools strip */
-    .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-      gap: 15px;
-      margin-top: 18px;
-    }
-    .tool-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 14px 16px;
-      background: #f8fbff;
-      border: 1px solid #e1ebf5;
-      border-radius: 13px;
-      text-decoration: none !important;
-      transition: all .2s;
-    }
-    .tool-item:hover {
-      background: #edf5ff;
-      border-color: #a9cdf8;
-      transform: translateY(-2px);
-    }
-    .tool-icon {
-      font-size: 24px;
-    }
-    .tool-info b {
-      display: block;
-      font-size: 14px;
-      color: var(--ink);
-    }
-    .tool-info small {
-      font-size: 12px;
-      color: var(--muted);
-    }
-
     /* Footer */
     footer {
       background: #0e223f;
       color: #bad3f3;
-      padding: 50px 0 30px;
-      margin-top: 70px;
+      padding: 48px 0 28px;
+      margin-top: 60px;
       font-size: 14px;
     }
     .footer-top {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-columns: 2fr 1fr;
       gap: 40px;
-      margin-bottom: 40px;
-      padding-bottom: 30px;
+      margin-bottom: 35px;
+      padding-bottom: 25px;
       border-bottom: 1px solid #233e64;
     }
     .footer-logo {
@@ -709,7 +625,7 @@
     .footer-links h4 {
       color: #fff;
       font-size: 15px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
     .footer-links ul {
       list-style: none;
@@ -735,7 +651,7 @@
     @media (max-width: 992px) {
       .hero {
         grid-template-columns: 1fr;
-        padding: 38px 28px;
+        padding: 36px 26px;
       }
       .hero-visual {
         display: none;
@@ -756,12 +672,15 @@
         width: 100%;
         margin-top: 10px;
       }
+      .subtopics-grid {
+        grid-template-columns: 1fr;
+      }
       .two-cols {
         grid-template-columns: 1fr;
       }
       .footer-top {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 25px;
       }
     }
     @media (max-width: 640px) {
@@ -797,13 +716,12 @@
         </div>
       </div>
       <nav class="nav-links">
-        <a href="#chuong-trinh">Chương trình học</a>
-        <a href="#cong-cu">Công cụ AI</a>
-        <a href="#danh-gia">Đánh giá & CLOs</a>
-        <a href="#tinh-diem">Tính điểm</a>
+        <a href="#danh-sach-bai">Danh sách bài học</a>
+        <a href="#tinh-diem">Tính điểm học phần</a>
+        <a href="#chuan-dau-ra">Chuẩn đầu ra</a>
       </nav>
       <div class="nav-cta">
-        <a href="Chuong1_BaiGiang_TuongTac.html" class="btn sm">Học Chương 1 →</a>
+        <a href="Chuong1_BaiGiang_TuongTac.html" class="btn sm">Vào Bài 1 →</a>
       </div>
     </div>
   </header>
@@ -813,71 +731,53 @@
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-content">
-        <span class="eyebrow">Học phần cơ sở · Năng lực số thế hệ mới</span>
+        <span class="eyebrow">Học phần cơ sở · Năng lực số sinh viên VNU</span>
         <h1>Nhập môn Công nghệ số &<br>Ứng dụng Trí tuệ Nhân tạo</h1>
         <p>
-          Trang bị tư duy công nghệ, kiến thức phần cứng – mạng, bảo mật dữ liệu và kỹ năng khai thác AI tạo sinh (Generative AI) phục vụ học tập, nghiên cứu và nghề nghiệp số.
+          Học liệu tương tác số hóa cho các bài học nền tảng: từ kiến trúc máy tính, hệ điều hành, kết nối mạng và thiết bị ngoại vi đến dữ liệu số và an toàn thông tin.
         </p>
         <div class="hero-actions">
           <a href="Chuong1_BaiGiang_TuongTac.html" class="btn">
-            📖 Vào bài giảng tương tác
+            📖 Vào Bài 1: Bài giảng tương tác
           </a>
           <a href="Chuong1_Quiz_TuChamDiem.html" class="btn ghost">
-            📝 Làm Quiz tự chấm điểm
+            📝 Làm Quiz Bài 1 (Tự chấm điểm)
           </a>
         </div>
         <div class="hero-tags">
-          <span class="hero-tag">🎓 03 Tín chỉ</span>
-          <span class="hero-tag">⚡ 5 Chương cốt lõi</span>
-          <span class="hero-tag">🤖 Kỹ năng Prompt AI</span>
+          <span class="hero-tag">🎓 02 Bài học đầu tiên</span>
+          <span class="hero-tag">⚡ Mô phỏng trực quan</span>
+          <span class="hero-tag">📝 52+ Câu trắc nghiệm</span>
           <span class="hero-tag">💡 Chạy 100% ngoại tuyến</span>
         </div>
       </div>
       <div class="hero-visual">
-        <svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Minh họa AI và Công nghệ số">
+        <svg viewBox="0 0 380 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Minh họa máy tính và công nghệ số">
           <defs>
             <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stop-color="#14c8b8"/>
               <stop offset="100%" stop-color="#3b82f6"/>
             </linearGradient>
-            <linearGradient id="chipGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#19335a"/>
-              <stop offset="100%" stop-color="#0a182c"/>
+            <linearGradient id="screenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#2a77d8"/>
+              <stop offset="100%" stop-color="#10366b"/>
             </linearGradient>
           </defs>
-          <!-- Background Circles -->
-          <circle cx="200" cy="160" r="140" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)" stroke-dasharray="6 8"/>
-          <circle cx="200" cy="160" r="105" fill="rgba(255,255,255,0.06)" />
-          
-          <!-- Central AI Chip -->
-          <rect x="135" y="95" width="130" height="130" rx="22" fill="url(#chipGrad)" stroke="url(#glowGrad)" stroke-width="4"/>
-          <!-- Circuit Lines -->
-          <path d="M135 125 H90 M135 160 H70 M135 195 H90" stroke="#48b7e0" stroke-width="3" stroke-linecap="round"/>
-          <path d="M265 125 H310 M265 160 H330 M265 195 H310" stroke="#48b7e0" stroke-width="3" stroke-linecap="round"/>
-          <path d="M165 95 V55 M200 95 V35 M235 95 V55" stroke="#2dd4bf" stroke-width="3" stroke-linecap="round"/>
-          <path d="M165 225 V265 M200 225 V285 M235 225 V265" stroke="#2dd4bf" stroke-width="3" stroke-linecap="round"/>
-          
-          <!-- Nodes -->
-          <circle cx="70" cy="160" r="6" fill="#67e8f9"/>
-          <circle cx="90" cy="125" r="5" fill="#38bdf8"/>
-          <circle cx="90" cy="195" r="5" fill="#38bdf8"/>
-          <circle cx="330" cy="160" r="6" fill="#67e8f9"/>
-          <circle cx="310" cy="125" r="5" fill="#38bdf8"/>
-          <circle cx="310" cy="195" r="5" fill="#38bdf8"/>
-          <circle cx="200" cy="35" r="6" fill="#2dd4bf"/>
-          <circle cx="200" cy="285" r="6" fill="#2dd4bf"/>
-
-          <!-- Brain / AI Icon Inside Chip -->
-          <text x="200" y="174" font-size="52" text-anchor="middle" fill="#5eead4">🧠</text>
-          
-          <!-- Floating Badges -->
-          <g transform="translate(45, 60)">
-            <rect width="105" height="34" rx="10" fill="#ffffff" filter="drop-shadow(0 8px 12px rgba(0,0,0,0.15))"/>
-            <text x="52" y="22" font-family="system-ui" font-size="12" font-weight="800" fill="#0f4880" text-anchor="middle">⚡ Machine Learning</text>
-          </g>
-          <g transform="translate(250, 230)">
-            <rect width="110" height="34" rx="10" fill="#ffffff" filter="drop-shadow(0 8px 12px rgba(0,0,0,0.15))"/>
-            <text x="55" y="22" font-family="system-ui" font-size="12" font-weight="800" fill="#007e77" text-anchor="middle">✨ Generative AI</text>
+          <circle cx="190" cy="150" r="130" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)" stroke-dasharray="6 8"/>
+          <!-- Laptop Base -->
+          <rect x="65" y="75" width="250" height="155" rx="14" fill="#0d233e" stroke="#8ec8f6" stroke-width="4"/>
+          <rect x="75" y="85" width="230" height="135" rx="8" fill="url(#screenGrad)"/>
+          <!-- Screen content -->
+          <path d="M95 180 Q190 100 285 145 L285 205 L95 205 Z" fill="#67e8f9" opacity=".3"/>
+          <path d="M100 155 L135 130 L170 150 L210 105 L250 125 L280 155" fill="none" stroke="#e0f7fe" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="210" cy="105" r="5" fill="#ffd978"/>
+          <!-- Laptop Bottom -->
+          <path d="M40 230 L340 230 L320 248 L60 248 Z" fill="#173a63" stroke="#8ec8f6" stroke-width="2"/>
+          <rect x="160" y="233" width="60" height="7" rx="3" fill="#8ec8f6"/>
+          <!-- Floating AI / Code badge -->
+          <g transform="translate(230, 40)">
+            <rect width="125" height="36" rx="10" fill="#ffffff" filter="drop-shadow(0 8px 14px rgba(0,0,0,0.2))"/>
+            <text x="62" y="23" font-family="system-ui" font-size="12" font-weight="800" fill="#0e52a5" text-anchor="middle">⚡ VNU Digital Skills</text>
           </g>
         </svg>
       </div>
@@ -886,31 +786,31 @@
     <!-- Key Metrics Strip -->
     <div class="metrics-strip">
       <div class="metric-card">
-        <div class="metric-icon" style="background:#e8f2ff;color:#155bd5;">📚</div>
+        <div class="metric-icon" style="background:#e8f2ff;color:#155bd5;">📘</div>
         <div>
-          <b>5</b>
-          <span>Chương học chuẩn hóa</span>
+          <b>2</b>
+          <span>Bài học nền tảng</span>
         </div>
       </div>
       <div class="metric-card">
         <div class="metric-icon" style="background:#eaf8f4;color:#0c9573;">🧪</div>
         <div>
-          <b>15+</b>
-          <span>Mô phỏng & bài thực hành</span>
+          <b>13+</b>
+          <span>Tiểu mục & Hoạt động</span>
         </div>
       </div>
       <div class="metric-card">
         <div class="metric-icon" style="background:#fff8e8;color:#d99516;">📝</div>
         <div>
-          <b>52+</b>
-          <span>Câu hỏi trắc nghiệm tự chấm</span>
+          <b>52</b>
+          <span>Câu hỏi trắc nghiệm</span>
         </div>
       </div>
       <div class="metric-card">
-        <div class="metric-icon" style="background:#f3efff;color:#7c3aed;">🏆</div>
+        <div class="metric-icon" style="background:#f3efff;color:#7c3aed;">💾</div>
         <div>
           <b>100%</b>
-          <span>Chuẩn đầu ra số VNU</span>
+          <span>Chạy ngoại tuyến (Offline)</span>
         </div>
       </div>
     </div>
@@ -918,54 +818,53 @@
     <!-- Progress Tracker Widget -->
     <div class="progress-box">
       <div class="progress-info">
-        <h3><span>🎯</span> Tiến độ học phần cá nhân</h3>
-        <p>Đánh dấu các học phần đã hoàn thành để theo dõi lộ trình của bạn trên trình duyệt này.</p>
+        <h3><span>🎯</span> Tiến độ 2 bài học</h3>
+        <p>Đánh dấu bài học bạn đã hoàn thành để theo dõi lộ trình trực tiếp trên trình duyệt.</p>
       </div>
       <div class="progress-bar-wrap">
         <div class="progress-bar-top">
-          <span>Tiến độ tổng quát:</span>
-          <span id="progressPercent" style="color:var(--blue)">20% (1/5 Chương)</span>
+          <span>Tiến độ hiện tại:</span>
+          <span id="progressPercent" style="color:var(--blue)">50% (1/2 Bài hoàn thành)</span>
         </div>
         <div class="progress-track">
-          <div class="progress-fill" id="progressFillBar" style="width: 20%;"></div>
+          <div class="progress-fill" id="progressFillBar" style="width: 50%;"></div>
         </div>
       </div>
     </div>
 
-    <!-- Course Modules Section -->
-    <section id="chuong-trinh">
+    <!-- Course Modules Section (Only 2 Lessons) -->
+    <section id="danh-sach-bai">
       <div class="section-head">
-        <span class="eyebrow">Lộ trình học tập</span>
-        <h2>Khung chương trình 05 Chương trọng tâm</h2>
-        <p>Thiết kế từ nền tảng thiết bị, hệ thống số đến các phương pháp khai thác Trí tuệ Nhân tạo hiện đại.</p>
+        <span class="eyebrow">Học phần trọng tâm</span>
+        <h2>Danh sách 02 bài học đầu tiên</h2>
+        <p>Nội dung cốt lõi trang bị hiểu biết sâu sắc về phần cứng, hệ điều hành, kết nối mạng và quản trị dữ liệu số an toàn.</p>
       </div>
 
       <div class="modules-grid">
 
-        <!-- Module 1: Featured & Live -->
+        <!-- Bài 1: Máy tính và các thiết bị ngoại vi -->
         <article class="module-card featured">
           <div class="module-num">
-            <small>Chương</small>
+            <small>Bài</small>
             <span>01</span>
           </div>
           <div class="module-content">
             <div class="module-header">
               <span class="badge green">● Sẵn sàng học ngay</span>
-              <span class="badge blue">Học liệu tương tác & Quiz</span>
+              <span class="badge blue">Chương 1</span>
               <h3>Máy tính và các thiết bị ngoại vi</h3>
             </div>
             <p class="module-desc">
-              Khám phá cấu trúc máy tính (CPU, RAM, SSD), hệ điều hành (Windows, macOS, Linux, GUI/CLI), kết nối mạng LAN/WAN, Wi-Fi, Bluetooth, NFC, chuẩn giao tiếp USB-C và các bộ phần mềm ứng dụng học tập.
+              Tìm hiểu cách máy tính hoạt động từ dữ liệu thô đến thông tin hữu ích, phân biệt phần cứng (CPU, RAM, ROM, SSD/HDD) và phần mềm, làm chủ hệ điều hành (Windows, macOS, Linux, GUI/CLI), các công nghệ mạng (LAN, WAN, Wi-Fi, Bluetooth, NFC), chuẩn giao tiếp USB-C và các bộ công cụ phần mềm văn phòng, nghiên cứu (Zotero, LMS).
             </p>
-            <div class="topic-list">
-              <span class="topic-pill">🔢 Dữ liệu & Quy trình xử lý</span>
-              <span class="topic-pill">⚡ Phần cứng: CPU/NPU, RAM, SSD</span>
-              <span class="topic-pill">🗂️ Hệ điều hành & Cây thư mục</span>
-              <span class="topic-pill">📶 Mạng LAN, Wi-Fi, Bluetooth, NFC</span>
-              <span class="topic-pill">📄 Ứng dụng văn phòng & Zotero</span>
+            <div class="subtopics-grid">
+              <div class="subtopic-item"><b>1.1</b> Máy tính và công nghệ số (Input - Processing - Output)</div>
+              <div class="subtopic-item"><b>1.2</b> Hệ điều hành, GUI/CLI & Cấu trúc cây thư mục</div>
+              <div class="subtopic-item"><b>1.3</b> Mạng LAN/WAN, Wi-Fi, Bluetooth, NFC & Ngoại vi</div>
+              <div class="subtopic-item"><b>1.4</b> Bộ ứng dụng văn phòng, trình duyệt & công cụ Zotero</div>
             </div>
             <div style="font-size:13px;color:var(--muted)">
-              💡 <em>Đã bao gồm đầy đủ bài giảng tương tác đa phương tiện và bộ 52 câu trắc nghiệm tự chấm điểm.</em>
+              💡 <em>Bao gồm 6 hoạt động mô phỏng tương tác và bộ ngân hàng 52 câu trắc nghiệm tự chấm điểm.</em>
             </div>
           </div>
           <div class="module-actions">
@@ -975,131 +874,42 @@
             <a href="Chuong1_Quiz_TuChamDiem.html" class="btn ghost">
               📝 Quiz tự chấm điểm
             </a>
-            <button class="btn sm ghost" onclick="toggleChapter(1)" id="btnDone1">
+            <button class="btn sm ghost" onclick="toggleLesson(1)" id="btnDone1">
               ✓ Đã hoàn thành
             </button>
           </div>
         </article>
 
-        <!-- Module 2 -->
+        <!-- Bài 2: Dữ liệu số, Điện toán đám mây & An toàn thông tin -->
         <article class="module-card">
           <div class="module-num">
-            <small>Chương</small>
+            <small>Bài</small>
             <span>02</span>
           </div>
           <div class="module-content">
             <div class="module-header">
-              <span class="badge blue">Cơ sở dữ liệu số</span>
+              <span class="badge teal">Học liệu số</span>
+              <span class="badge blue">Chương 2</span>
               <h3>Dữ liệu số, Điện toán đám mây & An toàn thông tin</h3>
             </div>
             <p class="module-desc">
-              Các hình thức biểu diễn dữ liệu số, lưu trữ và cộng tác trên Cloud (Google Drive, OneDrive). Kỹ năng nhận diện lừa đảo trực tuyến (Phishing), phòng chống mã độc, bảo vệ mật khẩu, kích hoạt xác thực 2 bước (2FA) và bảo vệ dữ liệu cá nhân.
+              Phương thức mã hóa và biểu diễn dữ liệu nhị phân (Bit, Byte, ký tự UTF-8, số, ảnh số). Sử dụng các dịch vụ lưu trữ đám mây (Google Drive, OneDrive) để làm việc nhóm. Kỹ năng nhận diện tấn công phi kỹ thuật (Social Engineering, Phishing), mã độc tống tiền (Ransomware), kích hoạt bảo mật 2 lớp (2FA) và bảo vệ quyền riêng tư số.
             </p>
-            <div class="topic-list">
-              <span class="topic-pill">☁️ Cloud Computing</span>
-              <span class="topic-pill">🛡️ An toàn thông tin & 2FA</span>
-              <span class="topic-pill">🎣 Nhận diện Phishing & Malware</span>
-              <span class="topic-pill">🔐 Luật An ninh mạng & Dữ liệu riêng tư</span>
+            <div class="subtopics-grid">
+              <div class="subtopic-item"><b>2.1</b> Biểu diễn dữ liệu số, hệ nhị phân & đơn vị đo lường</div>
+              <div class="subtopic-item"><b>2.2</b> Điện toán đám mây & Cộng tác trực tuyến thời gian thực</div>
+              <div class="subtopic-item"><b>2.3</b> Nhận diện lừa đảo trực tuyến (Phishing) & Mã độc hại</div>
+              <div class="subtopic-item"><b>2.4</b> Xác thực 2 bước (2FA), mật khẩu mạnh & Luật An ninh mạng</div>
+            </div>
+            <div style="font-size:13px;color:var(--muted)">
+              🛡️ <em>Trọng tâm rèn luyện tư duy tự bảo vệ và liêm chính học thuật trong không gian mạng đại học.</em>
             </div>
           </div>
           <div class="module-actions">
-            <a href="#cong-cu" class="btn ghost">
-              🔍 Xem công cụ bảo mật
-            </a>
-            <button class="btn sm ghost" onclick="toggleChapter(2)" id="btnDone2">
-              ○ Đánh dấu hoàn thành
+            <button class="btn ghost" onclick="alert('Học liệu tương tác Bài 2 đang được hoàn thiện. Vui lòng hoàn thành Bài 1 trước!')">
+              🔍 Xem tóm tắt bài học
             </button>
-          </div>
-        </article>
-
-        <!-- Module 3 -->
-        <article class="module-card">
-          <div class="module-num">
-            <small>Chương</small>
-            <span>03</span>
-          </div>
-          <div class="module-content">
-            <div class="module-header">
-              <span class="badge teal">Cốt lõi AI</span>
-              <h3>Tổng quan về Trí tuệ Nhân tạo (AI) & Học máy</h3>
-            </div>
-            <p class="module-desc">
-              Bản chất của AI, lịch sử phát triển qua các mùa đông và mùa xuân AI. Phân biệt Trí tuệ nhân tạo (AI), Học máy (Machine Learning) và Học sâu (Deep Learning). Giới thiệu AI tạo sinh (Generative AI) và các Mô hình ngôn ngữ lớn (LLMs).
-            </p>
-            <div class="topic-list">
-              <span class="topic-pill">🤖 Khái niệm & Lịch sử AI</span>
-              <span class="topic-pill">🧠 Machine Learning vs Deep Learning</span>
-              <span class="topic-pill">⚡ Large Language Models (LLMs)</span>
-              <span class="topic-pill">🎨 Generative AI: Text, Image, Code</span>
-            </div>
-          </div>
-          <div class="module-actions">
-            <a href="#cong-cu" class="btn ghost">
-              🛠️ Khám phá mô hình AI
-            </a>
-            <button class="btn sm ghost" onclick="toggleChapter(3)" id="btnDone3">
-              ○ Đánh dấu hoàn thành
-            </button>
-          </div>
-        </article>
-
-        <!-- Module 4 -->
-        <article class="module-card">
-          <div class="module-num">
-            <small>Chương</small>
-            <span>04</span>
-          </div>
-          <div class="module-content">
-            <div class="module-header">
-              <span class="badge gold">Kỹ năng thực chiến</span>
-              <h3>Kỹ năng Prompt Engineering & Ứng dụng AI thực tiễn</h3>
-            </div>
-            <p class="module-desc">
-              Phương pháp thiết kế lời nhắc (Prompting) chuẩn mực: Cấu trúc Role - Task - Context - Format. Ứng dụng AI vào tóm tắt tài liệu học thuật, hỗ trợ lập trình, phân tích số liệu, dịch thuật và thiết kế nội dung trình bày.
-            </p>
-            <div class="topic-list">
-              <span class="topic-pill">✍️ Kỹ thuật Prompting chuẩn</span>
-              <span class="topic-pill">💬 ChatGPT, Claude, Gemini, Copilot</span>
-              <span class="topic-pill">📊 AI trong phân tích dữ liệu</span>
-              <span class="topic-pill">🚀 Tự động hóa công việc học tập</span>
-            </div>
-          </div>
-          <div class="module-actions">
-            <a href="#prompt-builder" class="btn secondary">
-              ⚡ Thử Prompt Builder
-            </a>
-            <button class="btn sm ghost" onclick="toggleChapter(4)" id="btnDone4">
-              ○ Đánh dấu hoàn thành
-            </button>
-          </div>
-        </article>
-
-        <!-- Module 5 -->
-        <article class="module-card">
-          <div class="module-num">
-            <small>Chương</small>
-            <span>05</span>
-          </div>
-          <div class="module-content">
-            <div class="module-header">
-              <span class="badge blue">Đạo đức & Xã hội</span>
-              <h3>Đạo đức AI, Liêm chính học thuật & Xu hướng tương lai</h3>
-            </div>
-            <p class="module-desc">
-              Các vấn đề thiên kiến thuật toán (AI Bias), ảo giác thông tin (Hallucination), quyền sở hữu trí tuệ và bản quyền số. Quy định về liêm chính học thuật khi sử dụng AI tại VNU. Xu hướng tác động của AI đến thị trường lao động.
-            </p>
-            <div class="topic-list">
-              <span class="topic-pill">⚖️ Thiên kiến & Độ tin cậy của AI</span>
-              <span class="topic-pill">📜 Liêm chính học thuật trong nghiên cứu</span>
-              <span class="topic-pill">🎭 Deepfake & Trách nhiệm đạo đức</span>
-              <span class="topic-pill">🌐 Thị trường việc làm kỷ nguyên AI</span>
-            </div>
-          </div>
-          <div class="module-actions">
-            <a href="#danh-gia" class="btn ghost">
-              📋 Chuẩn quy định VNU
-            </a>
-            <button class="btn sm ghost" onclick="toggleChapter(5)" id="btnDone5">
+            <button class="btn sm ghost" onclick="toggleLesson(2)" id="btnDone2">
               ○ Đánh dấu hoàn thành
             </button>
           </div>
@@ -1108,63 +918,54 @@
       </div>
     </section>
 
-    <!-- Interactive Tools & Widgets Section -->
+    <!-- Student Utilities Section -->
     <div class="two-cols">
-      
-      <!-- Prompt Builder Widget -->
-      <div class="card" id="prompt-builder">
-        <span class="eyebrow">Trợ lý học tập tương tác</span>
-        <h3>⚡ Trình tạo câu lệnh AI (Prompt Builder)</h3>
+
+      <!-- Checklist Sau 2 Bài Học -->
+      <div class="card">
+        <span class="eyebrow">Tự đánh giá năng lực</span>
+        <h3>✅ Checklist kiến thức sau 2 bài</h3>
         <p style="font-size:14px;color:var(--muted)">
-          Sử dụng cấu trúc chuẩn: <strong>Vai trò + Nhiệm vụ + Bối cảnh + Định dạng</strong> để nhận câu trả lời chính xác nhất từ các mô hình AI.
+          Đánh dấu những kỹ năng bạn đã tự tin thực hiện thành thạo:
         </p>
 
-        <div class="prompt-box">
-          <div class="prompt-form">
-            <div>
-              <label for="promptRole">1. Vai trò (Role):</label>
-              <select id="promptRole" class="form-control" onchange="generatePrompt()">
-                <option value="Giảng viên Đại học Quốc gia Hà Nội">Giảng viên Đại học Quốc gia Hà Nội</option>
-                <option value="Chuyên gia phân tích dữ liệu & AI">Chuyên gia phân tích dữ liệu & AI</option>
-                <option value="Cố vấn học tập và nghiên cứu khoa học">Cố vấn học tập và nghiên cứu</option>
-                <option value="Lập trình viên phần mềm cao cấp">Lập trình viên phần mềm cao cấp</option>
-              </select>
-            </div>
-            <div>
-              <label for="promptTask">2. Nhiệm vụ cần AI thực hiện:</label>
-              <input type="text" id="promptTask" class="form-control" value="giải thích sự khác biệt giữa RAM và SSD" oninput="generatePrompt()">
-            </div>
-            <div>
-              <label for="promptFormat">3. Định dạng đầu ra mong muốn:</label>
-              <select id="promptFormat" class="form-control" onchange="generatePrompt()">
-                <option value="Bảng so sánh chi tiết kèm ví dụ thực tế">Bảng so sánh chi tiết kèm ví dụ</option>
-                <option value="3 gạch đầu dòng súc tích, dễ hiểu">3 gạch đầu dòng súc tích</option>
-                <option value="Kịch bản câu hỏi trắc nghiệm ôn thi có giải thích">Câu hỏi trắc nghiệm ôn tập</option>
-              </select>
-            </div>
+        <div style="margin-top:14px;">
+          <div class="checklist-item">
+            <input type="checkbox" id="c1" checked>
+            <label for="c1">Phân biệt được chức năng giữa RAM (tạm thời) và SSD (lưu trữ lâu dài).</label>
           </div>
-
-          <div style="margin-top:14px;font-size:12px;font-weight:750;color:#284f79;">Câu lệnh sẵn sàng sao chép:</div>
-          <div class="prompt-output" id="promptResult">
-            <button class="copy-btn" onclick="copyPrompt()">📋 Sao chép</button>
-            <span id="promptText"></span>
+          <div class="checklist-item">
+            <input type="checkbox" id="c2" checked>
+            <label for="c2">Hiểu cấu trúc đường dẫn tệp tin và phân biệt file hệ thống với file ứng dụng.</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="c3" checked>
+            <label for="c3">Lựa chọn đúng công nghệ kết nối: Ethernet, Wi-Fi, Bluetooth hay NFC theo nhu cầu.</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="c4">
+            <label for="c4">Nhận biết hình thức tấn công lừa đảo (Phishing) qua email và liên kết lạ.</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="c5">
+            <label for="c5">Kích hoạt và sử dụng thành thạo xác thực 2 bước (2FA) cho tài khoản trường VNU.</label>
           </div>
         </div>
       </div>
 
       <!-- Grade Calculator Widget -->
       <div class="card" id="tinh-diem">
-        <span class="eyebrow">Công cụ sinh viên</span>
-        <h3>📊 Dự tính điểm học phần (VNU Grading)</h3>
+        <span class="eyebrow">Công cụ học vụ</span>
+        <h3>📊 Dự tính điểm học phần (VNU)</h3>
         <p style="font-size:14px;color:var(--muted)">
-          Nhập điểm các cột đánh giá (thang 10) để tính điểm tổng kết và xếp loại học lực tương đương.
+          Nhập điểm các cột đánh giá (thang 10) để tính điểm tổng kết và xếp loại tương đương.
         </p>
 
-        <div style="margin-top:16px;">
+        <div style="margin-top:12px;">
           <div class="grade-row">
             <div>
-              <strong>Chuyên cần & Tham gia (10%)</strong><br>
-              <small style="color:var(--muted)">Điểm danh và tương tác trên lớp</small>
+              <strong>Chuyên cần & Tương tác (10%)</strong><br>
+              <small style="color:var(--muted)">Điểm danh và thực hành tại lớp</small>
             </div>
             <input type="number" id="gAttendance" class="grade-input" min="0" max="10" step="0.5" value="10" oninput="calcGrade()">
           </div>
@@ -1187,8 +988,8 @@
 
           <div class="grade-row">
             <div>
-              <strong>Thi cuối kỳ / Đồ án lớn (50%)</strong><br>
-              <small style="color:var(--muted)">Dự án ứng dụng AI hoặc thi tự luận</small>
+              <strong>Thi kết thúc học phần (50%)</strong><br>
+              <small style="color:var(--muted)">Đồ án môn học hoặc bài thi tổng hợp</small>
             </div>
             <input type="number" id="gFinal" class="grade-input" min="0" max="10" step="0.5" value="8.5" oninput="calcGrade()">
           </div>
@@ -1196,7 +997,7 @@
           <div class="grade-result-box">
             <div>
               <div style="font-size:12px;font-weight:800;color:var(--muted);text-transform:uppercase;">Điểm tổng kết dự kiến</div>
-              <div style="font-size:15px;font-weight:750;color:#184577;" id="gradeLetter">Thang 4: 3.5 / 4.0 · Loại Giỏi (A)</div>
+              <div style="font-size:14.5px;font-weight:750;color:#184577;" id="gradeLetter">Thang 4: 3.5 / 4.0 · Loại Giỏi (A)</div>
             </div>
             <div class="grade-big" id="gradeTotal">8.7</div>
           </div>
@@ -1205,116 +1006,48 @@
 
     </div>
 
-    <!-- AI Tools & Resources Section -->
-    <section id="cong-cu" style="margin-bottom: 50px;">
-      <div class="section-head">
-        <span class="eyebrow">Hệ sinh thái công nghệ</span>
-        <h2>Bộ công cụ số & Trí tuệ nhân tạo khuyến nghị</h2>
-        <p>Các nền tảng hữu ích phục vụ sinh viên trong suốt quá trình theo học môn học và nghiên cứu khoa học.</p>
-      </div>
-
-      <div class="tools-grid">
-        <a href="https://chatgpt.com" target="_blank" rel="noopener" class="tool-item">
-          <span class="tool-icon">🟢</span>
-          <div class="tool-info">
-            <b>ChatGPT (OpenAI)</b>
-            <small>Tư duy tổng quát & viết</small>
-          </div>
-        </a>
-        <a href="https://gemini.google.com" target="_blank" rel="noopener" class="tool-item">
-          <span class="tool-icon">✨</span>
-          <div class="tool-info">
-            <b>Google Gemini</b>
-            <small>Đa phương tiện & Google Workspace</small>
-          </div>
-        </a>
-        <a href="https://claude.ai" target="_blank" rel="noopener" class="tool-item">
-          <span class="tool-icon">🧠</span>
-          <div class="tool-info">
-            <b>Claude (Anthropic)</b>
-            <small>Lập luận sâu & xử lý văn bản dài</small>
-          </div>
-        </a>
-        <a href="https://copilot.microsoft.com" target="_blank" rel="noopener" class="tool-item">
-          <span class="tool-icon">🔷</span>
-          <div class="tool-info">
-            <b>Microsoft Copilot</b>
-            <small>Tích hợp Office 365 & Bing</small>
-          </div>
-        </a>
-        <a href="https://www.zotero.org" target="_blank" rel="noopener" class="tool-item">
-          <span class="tool-icon">📚</span>
-          <div class="tool-info">
-            <b>Zotero</b>
-            <small>Quản lý tài liệu tham khảo APA</small>
-          </div>
-        </a>
-        <a href="https://notion.so" target="_blank" rel="noopener" class="tool-item">
-          <span class="tool-icon">🗒️</span>
-          <div class="tool-info">
-            <b>Notion / Obsidian</b>
-            <small>Ghi chú & quản lý tri thức số</small>
-          </div>
-        </a>
-        <a href="https://github.com" target="_blank" rel="noopener" class="tool-item">
-          <span class="tool-icon">🐙</span>
-          <div class="tool-info">
-            <b>GitHub</b>
-            <small>Quản lý mã nguồn & bài tập</small>
-          </div>
-        </a>
-        <a href="https://canva.com" target="_blank" rel="noopener" class="tool-item">
-          <span class="tool-icon">🎨</span>
-          <div class="tool-info">
-            <b>Canva / Gamma AI</b>
-            <small>Thiết kế slide báo cáo nhanh</small>
-          </div>
-        </a>
-      </div>
-    </section>
-
     <!-- Assessment & CLOs Section -->
-    <section id="danh-gia" style="margin-bottom: 50px;">
+    <section id="chuan-dau-ra" style="margin-bottom: 50px;">
       <div class="section-head">
-        <span class="eyebrow">Quy chuẩn học vụ</span>
-        <h2>Chuẩn đầu ra & Cơ cấu đánh giá học phần</h2>
-        <p>Các tiêu chí năng lực đạt được sau khi hoàn thành khóa học theo khung trình độ ĐHQGHN.</p>
+        <span class="eyebrow">Chuẩn đầu ra</span>
+        <h2>Mục tiêu đạt được sau 2 bài học đầu tiên</h2>
+        <p>Bám sát Khung năng lực số dành cho sinh viên Đại học Quốc gia Hà Nội.</p>
       </div>
 
       <div class="table-responsive">
         <table>
           <thead>
             <tr>
-              <th style="width:120px;">Mã CĐR</th>
-              <th>Chuẩn đầu ra (Course Learning Outcomes - CLO)</th>
-              <th style="width:160px;">Mức độ năng lực</th>
-              <th style="width:180px;">Hình thức đánh giá</th>
+              <th style="width:130px;">Chuẩn đầu ra</th>
+              <th>Mô tả năng lực cụ thể</th>
+              <th style="width:170px;">Bài học tương ứng</th>
+              <th style="width:170px;">Đánh giá</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong>CLO 1</strong></td>
-              <td>Hiểu và giải thích được nguyên lý vận hành của máy tính, hệ điều hành, cấu trúc mạng và dữ liệu số.</td>
-              <td><span class="badge blue">Nhận thức</span></td>
-              <td>Quiz trắc nghiệm định kỳ</td>
+              <td><strong>CLO 1.1</strong></td>
+              <td>Hiểu rõ nguyên lý chu trình xử lý thông tin (Input - Processing - Output - Storage) và phân biệt vai trò các linh kiện phần cứng chính.</td>
+              <td><span class="badge blue">Bài 1 · Phần cứng</span></td>
+              <td>Quiz tự chấm & Thực hành</td>
             </tr>
             <tr>
-              <td><strong>CLO 2</strong></td>
-              <td>Thực hành thành thạo các kỹ năng tổ chức tệp, công cụ văn phòng và bảo đảm an toàn dữ liệu trên không gian số.</td>
-              <td><span class="badge teal">Kỹ năng số</span></td>
-              <td>Bài tập thực hành tại lớp</td>
+              <td><strong>CLO 1.2</strong></td>
+              <td>Sử dụng thành thạo hệ điều hành, quản lý tập tin có cấu trúc khoa học và kết nối mạng nội bộ/ngoại vi an toàn.</td>
+              <td><span class="badge blue">Bài 1 · Hệ điều hành</span></td>
+              <td>Thao tác trên máy tính</td>
             </tr>
             <tr>
-              <td><strong>CLO 3</strong></td>
-              <td>Vận dụng kỹ thuật Prompt Engineering để giao tiếp với các mô hình AI tạo sinh, phục vụ học tập và nghiên cứu.</td>
-              <td><span class="badge gold">Ứng dụng AI</span></td>
-              <td>Bài tập lớn & Dự án nhóm</td>
+              <td><strong>CLO 2.1</strong></td>
+              <td>Hiểu cách biểu diễn dữ liệu số, khai thác dịch vụ lưu trữ đám mây phục vụ làm việc nhóm hiệu quả.</td>
+              <td><span class="badge teal">Bài 2 · Dữ liệu số</span></td>
+              <td>Bài tập nhóm trực tuyến</td>
             </tr>
             <tr>
-              <td><strong>CLO 4</strong></td>
-              <td>Đánh giá được tính chính xác, đạo đức công nghệ và tuân thủ liêm chính học thuật khi sử dụng các hệ thống AI.</td>
-              <td><span class="badge green">Đạo đức & Trách nhiệm</span></td>
-              <td>Tiểu luận & Thảo luận tình huống</td>
+              <td><strong>CLO 2.2</strong></td>
+              <td>Có ý thức bảo mật thông tin, nhận biết nguy cơ lừa đảo không gian mạng và chủ động thiết lập xác thực 2 lớp.</td>
+              <td><span class="badge teal">Bài 2 · An toàn số</span></td>
+              <td>Xử lý tình huống thực tế</td>
             </tr>
           </tbody>
         </table>
@@ -1332,89 +1065,62 @@
             <div style="width:36px;height:36px;border-radius:10px;background:#155bd5;display:grid;place-items:center;color:#fff;font-weight:900;">AI</div>
             <div>ĐẠI HỌC QUỐC GIA HÀ NỘI</div>
           </div>
-          <p style="color:#92b2d6;max-width:440px;line-height:1.6;font-size:13.5px;">
+          <p style="color:#92b2d6;max-width:480px;line-height:1.6;font-size:13.5px;">
             Học phần: <strong>Nhập môn công nghệ số và ứng dụng trí tuệ nhân tạo</strong>.<br>
-            Hệ thống học liệu tương tác số hóa, chạy độc lập ngoại tuyến trên trình duyệt máy tính và thiết bị di động.
+            Cổng học liệu tương tác 2 bài học nền tảng, chạy ngoại tuyến hoàn toàn trên trình duyệt mà không cần cài đặt máy chủ.
           </p>
         </div>
         <div class="footer-links">
-          <h4>Học liệu Chương 1</h4>
+          <h4>Liên kết học liệu</h4>
           <ul>
-            <li><a href="Chuong1_BaiGiang_TuongTac.html">📖 Bài giảng tương tác Chương 1</a></li>
-            <li><a href="Chuong1_Quiz_TuChamDiem.html">📝 Bài Quiz tự chấm điểm Chương 1</a></li>
-            <li><a href="#chuong-trinh">📚 Đề cương 5 Chương môn học</a></li>
-          </ul>
-        </div>
-        <div class="footer-links">
-          <h4>Liên kết nhanh</h4>
-          <ul>
-            <li><a href="#prompt-builder">⚡ Trình tạo Prompt AI</a></li>
-            <li><a href="#tinh-diem">📊 Tính điểm học phần</a></li>
-            <li><a href="#danh-gia">📋 Chuẩn đầu ra (CLOs)</a></li>
-            <li><a href="https://github.com/vudmvn/VNU-CN-AI" target="_blank" rel="noopener">🐙 GitHub Kho lưu trữ</a></li>
+            <li><a href="Chuong1_BaiGiang_TuongTac.html">📖 Bài 1: Bài giảng tương tác</a></li>
+            <li><a href="Chuong1_Quiz_TuChamDiem.html">📝 Bài 1: Quiz tự chấm điểm (52 câu)</a></li>
+            <li><a href="#danh-sach-bai">📚 Bài 2: Dữ liệu số & An toàn thông tin</a></li>
+            <li><a href="#tinh-diem">📊 Bảng tính điểm học phần</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        Cổng học phần Nhập môn Công nghệ số và Ứng dụng AI · Đại học Quốc gia Hà Nội (VNU). Toàn bộ dữ liệu tiến độ được lưu trên trình duyệt của bạn.
+        Cổng học phần Nhập môn Công nghệ số và Ứng dụng AI · Đại học Quốc gia Hà Nội (VNU). Tiến độ được lưu trực tiếp trên trình duyệt của bạn.
       </div>
     </div>
   </footer>
 
   <script>
-    // Chapter Completion Tracker
-    const totalChapters = 5;
-    let completedChapters = JSON.parse(localStorage.getItem('vnu_completed_chapters') || '[1]');
+    // Lesson Tracker Logic (2 Lessons)
+    const totalLessons = 2;
+    let completedLessons = JSON.parse(localStorage.getItem('vnu_completed_lessons_v2') || '[1]');
 
     function updateProgressUI() {
-      const count = completedChapters.length;
-      const pct = Math.round((count / totalChapters) * 100);
+      const count = completedLessons.length;
+      const pct = Math.round((count / totalLessons) * 100);
       document.getElementById('progressFillBar').style.width = pct + '%';
-      document.getElementById('progressPercent').textContent = pct + '% (' + count + '/' + totalChapters + ' Chương)';
+      document.getElementById('progressPercent').textContent = pct + '% (' + count + '/' + totalLessons + ' Bài hoàn thành)';
 
-      for (let i = 1; i <= totalChapters; i++) {
+      for (let i = 1; i <= totalLessons; i++) {
         const btn = document.getElementById('btnDone' + i);
         if (btn) {
-          if (completedChapters.includes(i)) {
+          if (completedLessons.includes(i)) {
             btn.innerHTML = '✓ Đã hoàn thành';
             btn.classList.remove('ghost');
             btn.classList.add('btn');
           } else {
             btn.innerHTML = '○ Đánh dấu hoàn thành';
+            btn.classList.remove('btn');
             btn.classList.add('ghost');
           }
         }
       }
     }
 
-    function toggleChapter(num) {
-      if (completedChapters.includes(num)) {
-        completedChapters = completedChapters.filter(x => x !== num);
+    function toggleLesson(num) {
+      if (completedLessons.includes(num)) {
+        completedLessons = completedLessons.filter(x => x !== num);
       } else {
-        completedChapters.push(num);
+        completedLessons.push(num);
       }
-      localStorage.setItem('vnu_completed_chapters', JSON.stringify(completedChapters));
+      localStorage.setItem('vnu_completed_lessons_v2', JSON.stringify(completedLessons));
       updateProgressUI();
-    }
-
-    // Prompt Builder Logic
-    function generatePrompt() {
-      const role = document.getElementById('promptRole').value;
-      const task = document.getElementById('promptTask').value.trim() || 'hướng dẫn học tập';
-      const format = document.getElementById('promptFormat').value;
-
-      const fullPrompt = `Bạn là một ${role}.\nHãy thực hiện nhiệm vụ sau: ${task}.\nYêu cầu định dạng kết quả: ${format}.\nHãy trả lời một cách khoa học, rõ ràng và dễ tiếp thu nhất cho sinh viên đại học.`;
-
-      document.getElementById('promptText').textContent = fullPrompt;
-    }
-
-    function copyPrompt() {
-      const text = document.getElementById('promptText').textContent;
-      navigator.clipboard.writeText(text).then(() => {
-        const btn = document.querySelector('.copy-btn');
-        btn.textContent = '✓ Đã chép!';
-        setTimeout(() => btn.textContent = '📋 Sao chép', 2000);
-      });
     }
 
     // Grade Calculator Logic
@@ -1441,10 +1147,9 @@
       document.getElementById('gradeLetter').textContent = `Thang 4: ${gpa} · ${letter}`;
     }
 
-    // Initialize on load
+    // Initialize on page load
     window.addEventListener('DOMContentLoaded', () => {
       updateProgressUI();
-      generatePrompt();
       calcGrade();
     });
   </script>
