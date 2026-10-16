@@ -4,1154 +4,277 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <title>Nhập môn Công nghệ số & Ứng dụng Trí tuệ Nhân tạo | VNU</title>
-  <meta name="description" content="Cổng học liệu tương tác môn Nhập môn công nghệ số và ứng dụng trí tuệ nhân tạo - Đại học Quốc gia Hà Nội">
+  <title>Nhập môn công nghệ số và ứng dụng trí tuệ nhân tạo</title>
   <style>
     :root {
       --ink: #12243c;
       --muted: #52647a;
       --blue: #155bd5;
       --blue-hover: #104bb8;
-      --blue2: #077bbb;
       --teal: #009a91;
-      --teal-light: #e6f7f6;
-      --gold: #e5a722;
-      --gold-light: #fff8e8;
-      --green: #0c9573;
-      --green-light: #eaf8f4;
       --pale: #edf5ff;
       --line: #dce5ef;
       --bg: #f5f8fc;
       --paper: #ffffff;
-      --shadow: 0 15px 45px rgba(27, 54, 94, .08);
-      --shadow-sm: 0 4px 18px rgba(27, 54, 94, .05);
-      --shadow-hover: 0 20px 50px rgba(21, 91, 213, .14);
-      --radius: 19px;
-      --radius-sm: 12px;
+      --shadow: 0 15px 45px rgba(27, 54, 94, .07);
+      --radius: 18px;
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
     body {
       margin: 0;
       background: var(--bg);
       color: var(--ink);
-      font: 16px/1.65 system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font: 16px/1.65 system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
     }
-    button, input, select { font: inherit; }
-    button { cursor: pointer; }
-    a { color: var(--blue); text-decoration: none; transition: color .2s; }
-    a:hover { color: var(--blue-hover); text-decoration: underline; }
-    h1, h2, h3, h4 { line-height: 1.25; letter-spacing: -.025em; margin: 0 0 12px; }
-    p { margin: 0 0 14px; }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    h1, h2, h3 { line-height: 1.25; letter-spacing: -.02em; margin: 0 0 12px; }
 
-    /* Container */
-    .container {
-      max-width: 1240px;
+    .wrap {
+      max-width: 980px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 36px 20px 60px;
     }
 
-    /* Top Navigation */
-    .navbar {
-      position: sticky;
-      top: 0;
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+    /* Header */
+    .header {
+      margin-bottom: 32px;
+      padding-bottom: 24px;
       border-bottom: 1px solid var(--line);
-      z-index: 1000;
-      box-shadow: 0 2px 14px rgba(27, 54, 94, .04);
     }
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 70px;
-    }
-    .brand-wrap {
-      display: flex;
-      align-items: center;
-      gap: 13px;
-    }
-    .brand-logo {
-      width: 44px;
-      height: 44px;
-      border-radius: 13px;
-      background: linear-gradient(135deg, #155bd5, #009a91);
-      display: grid;
-      place-items: center;
-      color: #fff;
-      font-weight: 900;
-      font-size: 20px;
-      box-shadow: 0 6px 16px rgba(21, 91, 213, .28);
-    }
-    .brand-text strong {
-      font-size: 16px;
-      color: var(--ink);
-      display: block;
-      line-height: 1.2;
-    }
-    .brand-text small {
-      font-size: 12px;
-      color: var(--muted);
-      font-weight: 500;
-    }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-    }
-    .nav-links a {
-      font-size: 14px;
-      font-weight: 650;
-      color: #3b506b;
-      padding: 6px 4px;
-    }
-    .nav-links a:hover {
-      color: var(--blue);
-      text-decoration: none;
-    }
-
-    /* Buttons */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 11px 20px;
-      background: var(--blue);
-      color: #fff !important;
-      font-weight: 750;
-      font-size: 14px;
-      border-radius: 12px;
-      border: 1px solid transparent;
-      transition: all .2s ease;
-      cursor: pointer;
-      text-decoration: none !important;
-      box-shadow: 0 4px 14px rgba(21, 91, 213, .2);
-    }
-    .btn:hover {
-      background: var(--blue-hover);
-      transform: translateY(-1.5px);
-      box-shadow: 0 8px 22px rgba(21, 91, 213, .3);
-    }
-    .btn.ghost {
-      background: #fff;
-      color: var(--blue) !important;
-      border-color: #bad3f8;
-      box-shadow: none;
-    }
-    .btn.ghost:hover {
-      background: var(--pale);
-      border-color: var(--blue);
-    }
-    .btn.sm {
-      padding: 8px 14px;
-      font-size: 13px;
-      border-radius: 9px;
-    }
-
-    /* Badges & Pills */
     .eyebrow {
       display: inline-block;
       font-size: 12px;
       letter-spacing: .12em;
       text-transform: uppercase;
-      font-weight: 850;
-      color: var(--blue);
-    }
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 5px 12px;
-      border-radius: 30px;
-      font-size: 12px;
       font-weight: 800;
+      color: var(--blue);
+      margin-bottom: 8px;
     }
-    .badge.blue { background: #e8f1ff; color: var(--blue); }
-    .badge.teal { background: var(--teal-light); color: var(--teal); }
-    .badge.green { background: var(--green-light); color: var(--green); }
-
-    /* Hero */
-    .hero {
-      margin-top: 26px;
-      background: linear-gradient(132deg, #0e223f 0%, #134ea0 55%, #0e7d8d 100%);
-      border-radius: 28px;
-      padding: clamp(34px, 5vw, 60px);
-      color: #fff;
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-      display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 36px;
-      align-items: center;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -90px;
-      right: -80px;
-      width: 360px;
-      height: 360px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(0, 209, 193, 0.22) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-    }
-    .hero .eyebrow {
-      color: #90f5eb;
-      background: rgba(255, 255, 255, 0.12);
-      padding: 5px 14px;
-      border-radius: 20px;
-      margin-bottom: 15px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    .hero h1 {
-      font-size: clamp(30px, 3.8vw, 48px);
+    h1 {
+      font-size: clamp(28px, 3.5vw, 40px);
       font-weight: 900;
-      letter-spacing: -.03em;
-      margin-bottom: 16px;
-      color: #ffffff;
+      color: var(--ink);
+      margin-bottom: 10px;
     }
-    .hero p {
+    .lead {
       font-size: 16.5px;
-      color: #dbeaff;
-      max-width: 620px;
-      margin-bottom: 26px;
-    }
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 24px;
-    }
-    .hero-actions .btn {
-      background: #ffffff;
-      color: #0d4694 !important;
-    }
-    .hero-actions .btn:hover {
-      background: #f0f7ff;
-      color: #093470 !important;
-    }
-    .hero-actions .btn.ghost {
-      background: transparent;
-      color: #ffffff !important;
-      border-color: rgba(255, 255, 255, 0.5);
-    }
-    .hero-actions .btn.ghost:hover {
-      background: rgba(255, 255, 255, 0.12);
-      border-color: #ffffff;
-    }
-    .hero-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .hero-tag {
-      font-size: 12px;
-      font-weight: 700;
-      color: #d1e7ff;
-      background: rgba(255, 255, 255, 0.14);
-      padding: 4px 10px;
-      border-radius: 8px;
-    }
-    .hero-visual {
-      display: flex;
-      justify-content: center;
-      position: relative;
-    }
-    .hero-visual svg {
-      width: 100%;
-      max-width: 380px;
-      height: auto;
-      filter: drop-shadow(0 18px 30px rgba(0, 0, 0, .25));
-    }
-
-    /* Metric Strip */
-    .metrics-strip {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-      margin: 28px 0 40px;
-    }
-    .metric-card {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 20px 22px;
-      box-shadow: var(--shadow-sm);
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-    .metric-card:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
-    }
-    .metric-icon {
-      width: 50px;
-      height: 50px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      font-size: 24px;
-      flex-shrink: 0;
-    }
-    .metric-card b {
-      display: block;
-      font-size: 26px;
-      font-weight: 900;
-      color: var(--ink);
-      line-height: 1.1;
-    }
-    .metric-card span {
-      font-size: 13px;
-      color: var(--muted);
-      font-weight: 600;
-    }
-
-    /* Section Headers */
-    .section-head {
-      margin-bottom: 26px;
-    }
-    .section-head .eyebrow {
-      margin-bottom: 8px;
-    }
-    .section-head h2 {
-      font-size: clamp(24px, 2.4vw, 34px);
-      color: var(--ink);
-    }
-    .section-head p {
-      font-size: 15.5px;
-      color: var(--muted);
-      max-width: 720px;
-    }
-
-    /* Progress Tracker Widget */
-    .progress-box {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 24px 28px;
-      margin-bottom: 36px;
-      box-shadow: var(--shadow-sm);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-      flex-wrap: wrap;
-    }
-    .progress-info {
-      flex: 1;
-      min-width: 260px;
-    }
-    .progress-info h3 {
-      font-size: 18px;
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 9px;
-    }
-    .progress-info p {
-      font-size: 14px;
       color: var(--muted);
       margin: 0;
-    }
-    .progress-bar-wrap {
-      flex: 1.2;
-      min-width: 260px;
-    }
-    .progress-bar-top {
-      display: flex;
-      justify-content: space-between;
-      font-size: 13px;
-      font-weight: 750;
-      margin-bottom: 8px;
-    }
-    .progress-track {
-      height: 12px;
-      background: #e9f0f8;
-      border-radius: 20px;
-      overflow: hidden;
-    }
-    .progress-fill {
-      height: 100%;
-      width: 50%;
-      background: linear-gradient(90deg, #155bd5, #009a91);
-      border-radius: 20px;
-      transition: width .4s ease;
+      max-width: 760px;
     }
 
-    /* Course Modules Grid */
-    .modules-grid {
-      display: grid;
-      gap: 24px;
-      margin-bottom: 45px;
-    }
-    .module-card {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-sm);
-      padding: 30px;
-      transition: all .25s ease;
-      display: grid;
-      grid-template-columns: 80px 1fr auto;
-      gap: 24px;
-      align-items: start;
-    }
-    .module-card:hover {
-      box-shadow: var(--shadow-hover);
-      border-color: #bad3f8;
-      transform: translateY(-2px);
-    }
-    .module-card.featured {
-      border: 2px solid #a3c6fb;
-      background: linear-gradient(180deg, #ffffff 0%, #fafdff 100%);
-    }
-    .module-num {
-      width: 76px;
-      height: 76px;
-      border-radius: 18px;
-      background: #edf5ff;
-      border: 1px solid #d4e4fc;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      font-weight: 900;
-      color: var(--blue);
-      flex-shrink: 0;
-    }
-    .module-num small {
-      font-size: 11px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      font-weight: 800;
-      color: var(--muted);
-      margin-bottom: 2px;
-    }
-    .module-num span {
-      font-size: 26px;
-      line-height: 1;
-    }
-    .module-card.featured .module-num {
-      background: linear-gradient(135deg, #155bd5, #009a91);
-      color: #fff;
-      border: none;
-      box-shadow: 0 8px 18px rgba(21, 91, 213, .25);
-    }
-    .module-card.featured .module-num small {
-      color: #bbfbf3;
-    }
-    .module-content {
-      min-width: 0;
-    }
-    .module-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 8px;
-    }
-    .module-header h3 {
-      font-size: 22px;
+    /* Lessons Section */
+    .section-title {
+      font-size: 20px;
       font-weight: 850;
-      margin: 0;
-      color: var(--ink);
-    }
-    .module-desc {
-      font-size: 15px;
-      color: var(--muted);
-      margin-bottom: 16px;
-      line-height: 1.6;
-    }
-    .subtopics-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
       margin-bottom: 18px;
-    }
-    .subtopic-item {
-      background: #f8fbfe;
-      border: 1px solid #e2ebf4;
-      border-radius: 10px;
-      padding: 10px 14px;
-      font-size: 13.5px;
-      color: #244160;
-    }
-    .subtopic-item b {
-      color: var(--blue);
-      display: inline-block;
-      margin-right: 5px;
-    }
-    .module-actions {
       display: flex;
-      flex-direction: column;
+      align-items: center;
       gap: 10px;
-      min-width: 215px;
-      justify-content: center;
     }
-
-    /* Two Columns Section */
-    .two-cols {
+    .cards {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 25px;
-      margin-bottom: 45px;
+      gap: 22px;
     }
     .card {
       background: var(--paper);
       border: 1px solid var(--line);
       border-radius: var(--radius);
+      box-shadow: var(--shadow);
       padding: 28px;
-      box-shadow: var(--shadow-sm);
+      transition: border-color .2s;
+    }
+    .card.active {
+      border-color: #b7d3fa;
+    }
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+    .badge.green {
+      background: #e7f8f2;
+      color: #088466;
+    }
+    .badge.gray {
+      background: #edf2f7;
+      color: #5a6e85;
+    }
+    .card h2 {
+      font-size: 22px;
+      font-weight: 850;
+      margin: 0 0 10px;
+    }
+    .card-desc {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 16px;
     }
 
-    /* Grade Calculator */
-    .grade-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 0;
-      border-bottom: 1px dashed #e2ebf4;
+    /* Subsections list */
+    .subtopics {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 22px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .subtopics li {
+      background: #f8fbfe;
+      border: 1px solid #e2ebf4;
+      border-radius: 10px;
+      padding: 10px 14px;
       font-size: 14px;
+      color: #2b4562;
     }
-    .grade-row:last-child {
-      border: none;
-    }
-    .grade-input {
-      width: 75px;
-      padding: 6px 10px;
-      text-align: right;
-      border: 1px solid #c3d5e7;
-      border-radius: 8px;
-      font-weight: 750;
-    }
-    .grade-result-box {
-      margin-top: 18px;
-      padding: 16px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #edf5ff, #e3f8f5);
-      border: 1px solid #c2e0f7;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .grade-big {
-      font-size: 32px;
-      font-weight: 900;
+    .subtopics li b {
       color: var(--blue);
+      margin-right: 6px;
     }
 
-    /* Quick Checklist */
-    .checklist-item {
+    /* Actions */
+    .actions {
       display: flex;
       gap: 12px;
-      align-items: flex-start;
-      padding: 11px 0;
-      border-bottom: 1px solid #edf2f7;
-      font-size: 14px;
+      flex-wrap: wrap;
     }
-    .checklist-item:last-child {
-      border: none;
-    }
-    .checklist-item input {
-      margin-top: 3px;
-      accent-color: var(--blue);
-      width: 17px;
-      height: 17px;
-    }
-
-    /* Table */
-    .table-responsive {
-      overflow-x: auto;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      text-align: left;
-      font-size: 14px;
-    }
-    th, td {
-      padding: 14px 18px;
-      border-bottom: 1px solid var(--line);
-    }
-    th {
-      background: #f1f6fc;
-      color: #213c5d;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 18px;
+      background: var(--blue);
+      color: #fff !important;
       font-weight: 750;
+      font-size: 14px;
+      border-radius: 11px;
+      border: 1px solid transparent;
+      text-decoration: none !important;
+      transition: background .2s;
     }
-    tr:last-child td {
-      border-bottom: none;
+    .btn:hover {
+      background: var(--blue-hover);
+    }
+    .btn.ghost {
+      background: #fff;
+      color: var(--blue) !important;
+      border-color: #b9d3f8;
+    }
+    .btn.ghost:hover {
+      background: var(--pale);
+    }
+    .btn.disabled {
+      background: #edf2f7;
+      color: #8fa0b5 !important;
+      border-color: #dce5ef;
+      cursor: not-allowed;
     }
 
     /* Footer */
     footer {
-      background: #0e223f;
-      color: #bad3f3;
-      padding: 48px 0 28px;
-      margin-top: 60px;
-      font-size: 14px;
-    }
-    .footer-top {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 40px;
-      margin-bottom: 35px;
-      padding-bottom: 25px;
-      border-bottom: 1px solid #233e64;
-    }
-    .footer-logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 15px;
-    }
-    .footer-logo div {
-      font-size: 18px;
-      font-weight: 850;
-      color: #fff;
-    }
-    .footer-links h4 {
-      color: #fff;
-      font-size: 15px;
-      margin-bottom: 14px;
-    }
-    .footer-links ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .footer-links li {
-      margin-bottom: 9px;
-    }
-    .footer-links a {
-      color: #9cbddf;
-    }
-    .footer-links a:hover {
-      color: #fff;
-    }
-    .footer-bottom {
+      margin-top: 45px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13.5px;
       text-align: center;
-      font-size: 13px;
-      color: #6a8bb1;
     }
 
-    /* Responsive */
-    @media (max-width: 992px) {
-      .hero {
-        grid-template-columns: 1fr;
-        padding: 36px 26px;
-      }
-      .hero-visual {
-        display: none;
-      }
-      .metrics-strip {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .module-card {
-        grid-template-columns: 60px 1fr;
-      }
-      .module-num {
-        width: 60px;
-        height: 60px;
-      }
-      .module-actions {
-        grid-column: 1 / -1;
-        flex-direction: row;
-        width: 100%;
-        margin-top: 10px;
-      }
-      .subtopics-grid {
-        grid-template-columns: 1fr;
-      }
-      .two-cols {
-        grid-template-columns: 1fr;
-      }
-      .footer-top {
-        grid-template-columns: 1fr;
-        gap: 25px;
-      }
-    }
-    @media (max-width: 640px) {
-      .nav-links {
-        display: none;
-      }
-      .metrics-strip {
-        grid-template-columns: 1fr;
-      }
-      .module-card {
-        grid-template-columns: 1fr;
-        padding: 20px;
-      }
-      .module-actions {
-        flex-direction: column;
-      }
-      .module-actions .btn {
-        width: 100%;
-      }
+    @media (max-width: 680px) {
+      .wrap { padding: 24px 16px 40px; }
+      .card { padding: 20px; }
+      .subtopics { grid-template-columns: 1fr; }
+      .actions { flex-direction: column; }
+      .btn { width: 100%; }
     }
   </style>
 </head>
 <body>
+  <div class="wrap">
+    
+    <header class="header">
+      <span class="eyebrow">Học phần</span>
+      <h1>Nhập môn công nghệ số và ứng dụng trí tuệ nhân tạo</h1>
+      <p class="lead">Mục lục học liệu số cho các bài học ban đầu của môn học.</p>
+    </header>
 
-  <!-- Top Navigation -->
-  <header class="navbar">
-    <div class="container nav-inner">
-      <div class="brand-wrap">
-        <div class="brand-logo">AI</div>
-        <div class="brand-text">
-          <strong>ĐẠI HỌC QUỐC GIA HÀ NỘI</strong>
-          <small>Cổng học phần Công nghệ số & Trí tuệ nhân tạo</small>
-        </div>
-      </div>
-      <nav class="nav-links">
-        <a href="#danh-sach-bai">Danh sách bài học</a>
-        <a href="#tinh-diem">Tính điểm học phần</a>
-        <a href="#chuan-dau-ra">Chuẩn đầu ra</a>
-      </nav>
-      <div class="nav-cta">
-        <a href="Chuong1_BaiGiang_TuongTac.html" class="btn sm">Vào Bài 1 →</a>
-      </div>
-    </div>
-  </header>
+    <main>
+      <div class="section-title">Danh sách bài học</div>
 
-  <main class="container">
-
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-content">
-        <span class="eyebrow">Học phần cơ sở · Năng lực số sinh viên VNU</span>
-        <h1>Nhập môn Công nghệ số &<br>Ứng dụng Trí tuệ Nhân tạo</h1>
-        <p>
-          Học liệu tương tác số hóa cho các bài học nền tảng: từ kiến trúc máy tính, hệ điều hành, kết nối mạng và thiết bị ngoại vi đến dữ liệu số và an toàn thông tin.
-        </p>
-        <div class="hero-actions">
-          <a href="Chuong1_BaiGiang_TuongTac.html" class="btn">
-            📖 Vào Bài 1: Bài giảng tương tác
-          </a>
-          <a href="Chuong1_Quiz_TuChamDiem.html" class="btn ghost">
-            📝 Làm Quiz Bài 1 (Tự chấm điểm)
-          </a>
-        </div>
-        <div class="hero-tags">
-          <span class="hero-tag">🎓 02 Bài học đầu tiên</span>
-          <span class="hero-tag">⚡ Mô phỏng trực quan</span>
-          <span class="hero-tag">📝 52+ Câu trắc nghiệm</span>
-          <span class="hero-tag">💡 Chạy 100% ngoại tuyến</span>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <svg viewBox="0 0 380 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Minh họa máy tính và công nghệ số">
-          <defs>
-            <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#14c8b8"/>
-              <stop offset="100%" stop-color="#3b82f6"/>
-            </linearGradient>
-            <linearGradient id="screenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#2a77d8"/>
-              <stop offset="100%" stop-color="#10366b"/>
-            </linearGradient>
-          </defs>
-          <circle cx="190" cy="150" r="130" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)" stroke-dasharray="6 8"/>
-          <!-- Laptop Base -->
-          <rect x="65" y="75" width="250" height="155" rx="14" fill="#0d233e" stroke="#8ec8f6" stroke-width="4"/>
-          <rect x="75" y="85" width="230" height="135" rx="8" fill="url(#screenGrad)"/>
-          <!-- Screen content -->
-          <path d="M95 180 Q190 100 285 145 L285 205 L95 205 Z" fill="#67e8f9" opacity=".3"/>
-          <path d="M100 155 L135 130 L170 150 L210 105 L250 125 L280 155" fill="none" stroke="#e0f7fe" stroke-width="5" stroke-linecap="round"/>
-          <circle cx="210" cy="105" r="5" fill="#ffd978"/>
-          <!-- Laptop Bottom -->
-          <path d="M40 230 L340 230 L320 248 L60 248 Z" fill="#173a63" stroke="#8ec8f6" stroke-width="2"/>
-          <rect x="160" y="233" width="60" height="7" rx="3" fill="#8ec8f6"/>
-          <!-- Floating AI / Code badge -->
-          <g transform="translate(230, 40)">
-            <rect width="125" height="36" rx="10" fill="#ffffff" filter="drop-shadow(0 8px 14px rgba(0,0,0,0.2))"/>
-            <text x="62" y="23" font-family="system-ui" font-size="12" font-weight="800" fill="#0e52a5" text-anchor="middle">⚡ VNU Digital Skills</text>
-          </g>
-        </svg>
-      </div>
-    </section>
-
-    <!-- Key Metrics Strip -->
-    <div class="metrics-strip">
-      <div class="metric-card">
-        <div class="metric-icon" style="background:#e8f2ff;color:#155bd5;">📘</div>
-        <div>
-          <b>2</b>
-          <span>Bài học nền tảng</span>
-        </div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-icon" style="background:#eaf8f4;color:#0c9573;">🧪</div>
-        <div>
-          <b>13+</b>
-          <span>Tiểu mục & Hoạt động</span>
-        </div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-icon" style="background:#fff8e8;color:#d99516;">📝</div>
-        <div>
-          <b>52</b>
-          <span>Câu hỏi trắc nghiệm</span>
-        </div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-icon" style="background:#f3efff;color:#7c3aed;">💾</div>
-        <div>
-          <b>100%</b>
-          <span>Chạy ngoại tuyến (Offline)</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Progress Tracker Widget -->
-    <div class="progress-box">
-      <div class="progress-info">
-        <h3><span>🎯</span> Tiến độ 2 bài học</h3>
-        <p>Đánh dấu bài học bạn đã hoàn thành để theo dõi lộ trình trực tiếp trên trình duyệt.</p>
-      </div>
-      <div class="progress-bar-wrap">
-        <div class="progress-bar-top">
-          <span>Tiến độ hiện tại:</span>
-          <span id="progressPercent" style="color:var(--blue)">50% (1/2 Bài hoàn thành)</span>
-        </div>
-        <div class="progress-track">
-          <div class="progress-fill" id="progressFillBar" style="width: 50%;"></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Course Modules Section (Only 2 Lessons) -->
-    <section id="danh-sach-bai">
-      <div class="section-head">
-        <span class="eyebrow">Học phần trọng tâm</span>
-        <h2>Danh sách 02 bài học đầu tiên</h2>
-        <p>Nội dung cốt lõi trang bị hiểu biết sâu sắc về phần cứng, hệ điều hành, kết nối mạng và quản trị dữ liệu số an toàn.</p>
-      </div>
-
-      <div class="modules-grid">
-
-        <!-- Bài 1: Máy tính và các thiết bị ngoại vi -->
-        <article class="module-card featured">
-          <div class="module-num">
-            <small>Bài</small>
-            <span>01</span>
+      <div class="cards">
+        
+        <!-- Bài 1 -->
+        <article class="card active">
+          <div class="card-top">
+            <span class="badge green">● Đã có học liệu</span>
           </div>
-          <div class="module-content">
-            <div class="module-header">
-              <span class="badge green">● Sẵn sàng học ngay</span>
-              <span class="badge blue">Chương 1</span>
-              <h3>Máy tính và các thiết bị ngoại vi</h3>
-            </div>
-            <p class="module-desc">
-              Tìm hiểu cách máy tính hoạt động từ dữ liệu thô đến thông tin hữu ích, phân biệt phần cứng (CPU, RAM, ROM, SSD/HDD) và phần mềm, làm chủ hệ điều hành (Windows, macOS, Linux, GUI/CLI), các công nghệ mạng (LAN, WAN, Wi-Fi, Bluetooth, NFC), chuẩn giao tiếp USB-C và các bộ công cụ phần mềm văn phòng, nghiên cứu (Zotero, LMS).
-            </p>
-            <div class="subtopics-grid">
-              <div class="subtopic-item"><b>1.1</b> Máy tính và công nghệ số (Input - Processing - Output)</div>
-              <div class="subtopic-item"><b>1.2</b> Hệ điều hành, GUI/CLI & Cấu trúc cây thư mục</div>
-              <div class="subtopic-item"><b>1.3</b> Mạng LAN/WAN, Wi-Fi, Bluetooth, NFC & Ngoại vi</div>
-              <div class="subtopic-item"><b>1.4</b> Bộ ứng dụng văn phòng, trình duyệt & công cụ Zotero</div>
-            </div>
-            <div style="font-size:13px;color:var(--muted)">
-              💡 <em>Bao gồm 6 hoạt động mô phỏng tương tác và bộ ngân hàng 52 câu trắc nghiệm tự chấm điểm.</em>
-            </div>
-          </div>
-          <div class="module-actions">
+          <h2>Bài 1: Máy tính và các thiết bị ngoại vi</h2>
+          <p class="card-desc">
+            Tổng quan về dữ liệu, thông tin, cấu tạo phần cứng (CPU, RAM, SSD), nguyên lý hệ điều hành, quản lý tệp, mạng LAN/WAN, các công nghệ không dây và phần mềm ứng dụng học tập.
+          </p>
+
+          <ul class="subtopics">
+            <li><b>1.1</b> Máy tính và công nghệ số</li>
+            <li><b>1.2</b> Hệ điều hành và quản lý tệp</li>
+            <li><b>1.3</b> Mạng, kết nối và thiết bị ngoại vi</li>
+            <li><b>1.4</b> Phần mềm ứng dụng học tập</li>
+          </ul>
+
+          <div class="actions">
             <a href="Chuong1_BaiGiang_TuongTac.html" class="btn">
               📖 Bài giảng tương tác
             </a>
             <a href="Chuong1_Quiz_TuChamDiem.html" class="btn ghost">
-              📝 Quiz tự chấm điểm
+              📝 Quiz tự chấm điểm (52 câu)
             </a>
-            <button class="btn sm ghost" onclick="toggleLesson(1)" id="btnDone1">
-              ✓ Đã hoàn thành
-            </button>
           </div>
         </article>
 
-        <!-- Bài 2: Dữ liệu số, Điện toán đám mây & An toàn thông tin -->
-        <article class="module-card">
-          <div class="module-num">
-            <small>Bài</small>
-            <span>02</span>
+        <!-- Bài 2 -->
+        <article class="card">
+          <div class="card-top">
+            <span class="badge gray">○ Đang cập nhật</span>
           </div>
-          <div class="module-content">
-            <div class="module-header">
-              <span class="badge teal">Học liệu số</span>
-              <span class="badge blue">Chương 2</span>
-              <h3>Dữ liệu số, Điện toán đám mây & An toàn thông tin</h3>
-            </div>
-            <p class="module-desc">
-              Phương thức mã hóa và biểu diễn dữ liệu nhị phân (Bit, Byte, ký tự UTF-8, số, ảnh số). Sử dụng các dịch vụ lưu trữ đám mây (Google Drive, OneDrive) để làm việc nhóm. Kỹ năng nhận diện tấn công phi kỹ thuật (Social Engineering, Phishing), mã độc tống tiền (Ransomware), kích hoạt bảo mật 2 lớp (2FA) và bảo vệ quyền riêng tư số.
-            </p>
-            <div class="subtopics-grid">
-              <div class="subtopic-item"><b>2.1</b> Biểu diễn dữ liệu số, hệ nhị phân & đơn vị đo lường</div>
-              <div class="subtopic-item"><b>2.2</b> Điện toán đám mây & Cộng tác trực tuyến thời gian thực</div>
-              <div class="subtopic-item"><b>2.3</b> Nhận diện lừa đảo trực tuyến (Phishing) & Mã độc hại</div>
-              <div class="subtopic-item"><b>2.4</b> Xác thực 2 bước (2FA), mật khẩu mạnh & Luật An ninh mạng</div>
-            </div>
-            <div style="font-size:13px;color:var(--muted)">
-              🛡️ <em>Trọng tâm rèn luyện tư duy tự bảo vệ và liêm chính học thuật trong không gian mạng đại học.</em>
-            </div>
-          </div>
-          <div class="module-actions">
-            <button class="btn ghost" onclick="alert('Học liệu tương tác Bài 2 đang được hoàn thiện. Vui lòng hoàn thành Bài 1 trước!')">
-              🔍 Xem tóm tắt bài học
-            </button>
-            <button class="btn sm ghost" onclick="toggleLesson(2)" id="btnDone2">
-              ○ Đánh dấu hoàn thành
-            </button>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- Student Utilities Section -->
-    <div class="two-cols">
-
-      <!-- Checklist Sau 2 Bài Học -->
-      <div class="card">
-        <span class="eyebrow">Tự đánh giá năng lực</span>
-        <h3>✅ Checklist kiến thức sau 2 bài</h3>
-        <p style="font-size:14px;color:var(--muted)">
-          Đánh dấu những kỹ năng bạn đã tự tin thực hiện thành thạo:
-        </p>
-
-        <div style="margin-top:14px;">
-          <div class="checklist-item">
-            <input type="checkbox" id="c1" checked>
-            <label for="c1">Phân biệt được chức năng giữa RAM (tạm thời) và SSD (lưu trữ lâu dài).</label>
-          </div>
-          <div class="checklist-item">
-            <input type="checkbox" id="c2" checked>
-            <label for="c2">Hiểu cấu trúc đường dẫn tệp tin và phân biệt file hệ thống với file ứng dụng.</label>
-          </div>
-          <div class="checklist-item">
-            <input type="checkbox" id="c3" checked>
-            <label for="c3">Lựa chọn đúng công nghệ kết nối: Ethernet, Wi-Fi, Bluetooth hay NFC theo nhu cầu.</label>
-          </div>
-          <div class="checklist-item">
-            <input type="checkbox" id="c4">
-            <label for="c4">Nhận biết hình thức tấn công lừa đảo (Phishing) qua email và liên kết lạ.</label>
-          </div>
-          <div class="checklist-item">
-            <input type="checkbox" id="c5">
-            <label for="c5">Kích hoạt và sử dụng thành thạo xác thực 2 bước (2FA) cho tài khoản trường VNU.</label>
-          </div>
-        </div>
-      </div>
-
-      <!-- Grade Calculator Widget -->
-      <div class="card" id="tinh-diem">
-        <span class="eyebrow">Công cụ học vụ</span>
-        <h3>📊 Dự tính điểm học phần (VNU)</h3>
-        <p style="font-size:14px;color:var(--muted)">
-          Nhập điểm các cột đánh giá (thang 10) để tính điểm tổng kết và xếp loại tương đương.
-        </p>
-
-        <div style="margin-top:12px;">
-          <div class="grade-row">
-            <div>
-              <strong>Chuyên cần & Tương tác (10%)</strong><br>
-              <small style="color:var(--muted)">Điểm danh và thực hành tại lớp</small>
-            </div>
-            <input type="number" id="gAttendance" class="grade-input" min="0" max="10" step="0.5" value="10" oninput="calcGrade()">
-          </div>
-
-          <div class="grade-row">
-            <div>
-              <strong>Quiz & Bài tập thường xuyên (20%)</strong><br>
-              <small style="color:var(--muted)">Điểm trắc nghiệm trên cổng học tập</small>
-            </div>
-            <input type="number" id="gQuiz" class="grade-input" min="0" max="10" step="0.5" value="9" oninput="calcGrade()">
-          </div>
-
-          <div class="grade-row">
-            <div>
-              <strong>Kiểm tra giữa kỳ (20%)</strong><br>
-              <small style="color:var(--muted)">Bài thi lý thuyết hoặc thực hành</small>
-            </div>
-            <input type="number" id="gMid" class="grade-input" min="0" max="10" step="0.5" value="8.5" oninput="calcGrade()">
-          </div>
-
-          <div class="grade-row">
-            <div>
-              <strong>Thi kết thúc học phần (50%)</strong><br>
-              <small style="color:var(--muted)">Đồ án môn học hoặc bài thi tổng hợp</small>
-            </div>
-            <input type="number" id="gFinal" class="grade-input" min="0" max="10" step="0.5" value="8.5" oninput="calcGrade()">
-          </div>
-
-          <div class="grade-result-box">
-            <div>
-              <div style="font-size:12px;font-weight:800;color:var(--muted);text-transform:uppercase;">Điểm tổng kết dự kiến</div>
-              <div style="font-size:14.5px;font-weight:750;color:#184577;" id="gradeLetter">Thang 4: 3.5 / 4.0 · Loại Giỏi (A)</div>
-            </div>
-            <div class="grade-big" id="gradeTotal">8.7</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Assessment & CLOs Section -->
-    <section id="chuan-dau-ra" style="margin-bottom: 50px;">
-      <div class="section-head">
-        <span class="eyebrow">Chuẩn đầu ra</span>
-        <h2>Mục tiêu đạt được sau 2 bài học đầu tiên</h2>
-        <p>Bám sát Khung năng lực số dành cho sinh viên Đại học Quốc gia Hà Nội.</p>
-      </div>
-
-      <div class="table-responsive">
-        <table>
-          <thead>
-            <tr>
-              <th style="width:130px;">Chuẩn đầu ra</th>
-              <th>Mô tả năng lực cụ thể</th>
-              <th style="width:170px;">Bài học tương ứng</th>
-              <th style="width:170px;">Đánh giá</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>CLO 1.1</strong></td>
-              <td>Hiểu rõ nguyên lý chu trình xử lý thông tin (Input - Processing - Output - Storage) và phân biệt vai trò các linh kiện phần cứng chính.</td>
-              <td><span class="badge blue">Bài 1 · Phần cứng</span></td>
-              <td>Quiz tự chấm & Thực hành</td>
-            </tr>
-            <tr>
-              <td><strong>CLO 1.2</strong></td>
-              <td>Sử dụng thành thạo hệ điều hành, quản lý tập tin có cấu trúc khoa học và kết nối mạng nội bộ/ngoại vi an toàn.</td>
-              <td><span class="badge blue">Bài 1 · Hệ điều hành</span></td>
-              <td>Thao tác trên máy tính</td>
-            </tr>
-            <tr>
-              <td><strong>CLO 2.1</strong></td>
-              <td>Hiểu cách biểu diễn dữ liệu số, khai thác dịch vụ lưu trữ đám mây phục vụ làm việc nhóm hiệu quả.</td>
-              <td><span class="badge teal">Bài 2 · Dữ liệu số</span></td>
-              <td>Bài tập nhóm trực tuyến</td>
-            </tr>
-            <tr>
-              <td><strong>CLO 2.2</strong></td>
-              <td>Có ý thức bảo mật thông tin, nhận biết nguy cơ lừa đảo không gian mạng và chủ động thiết lập xác thực 2 lớp.</td>
-              <td><span class="badge teal">Bài 2 · An toàn số</span></td>
-              <td>Xử lý tình huống thực tế</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="footer-top">
-        <div>
-          <div class="footer-logo">
-            <div style="width:36px;height:36px;border-radius:10px;background:#155bd5;display:grid;place-items:center;color:#fff;font-weight:900;">AI</div>
-            <div>ĐẠI HỌC QUỐC GIA HÀ NỘI</div>
-          </div>
-          <p style="color:#92b2d6;max-width:480px;line-height:1.6;font-size:13.5px;">
-            Học phần: <strong>Nhập môn công nghệ số và ứng dụng trí tuệ nhân tạo</strong>.<br>
-            Cổng học liệu tương tác 2 bài học nền tảng, chạy ngoại tuyến hoàn toàn trên trình duyệt mà không cần cài đặt máy chủ.
+          <h2>Bài 2: Dữ liệu số và an toàn thông tin</h2>
+          <p class="card-desc">
+            Khái niệm về biểu diễn dữ liệu số, lưu trữ đám mây, các nguyên tắc bảo đảm an toàn dữ liệu và kỹ năng phòng chống rủi ro không gian mạng.
           </p>
-        </div>
-        <div class="footer-links">
-          <h4>Liên kết học liệu</h4>
-          <ul>
-            <li><a href="Chuong1_BaiGiang_TuongTac.html">📖 Bài 1: Bài giảng tương tác</a></li>
-            <li><a href="Chuong1_Quiz_TuChamDiem.html">📝 Bài 1: Quiz tự chấm điểm (52 câu)</a></li>
-            <li><a href="#danh-sach-bai">📚 Bài 2: Dữ liệu số & An toàn thông tin</a></li>
-            <li><a href="#tinh-diem">📊 Bảng tính điểm học phần</a></li>
+
+          <ul class="subtopics">
+            <li><b>2.1</b> Biểu diễn dữ liệu số</li>
+            <li><b>2.2</b> Lưu trữ đám mây & cộng tác</li>
+            <li><b>2.3</b> Nhận diện rủi ro mạng & lừa đảo trực tuyến</li>
+            <li><b>2.4</b> Xác thực 2 bước & bảo mật thông tin cá nhân</li>
           </ul>
-        </div>
+
+          <div class="actions">
+            <span class="btn disabled">Đang chuẩn bị học liệu</span>
+          </div>
+        </article>
+
       </div>
-      <div class="footer-bottom">
-        Cổng học phần Nhập môn Công nghệ số và Ứng dụng AI · Đại học Quốc gia Hà Nội (VNU). Tiến độ được lưu trực tiếp trên trình duyệt của bạn.
-      </div>
-    </div>
-  </footer>
+    </main>
 
-  <script>
-    // Lesson Tracker Logic (2 Lessons)
-    const totalLessons = 2;
-    let completedLessons = JSON.parse(localStorage.getItem('vnu_completed_lessons_v2') || '[1]');
+    <footer>
+      Môn học: Nhập môn công nghệ số và ứng dụng trí tuệ nhân tạo.
+    </footer>
 
-    function updateProgressUI() {
-      const count = completedLessons.length;
-      const pct = Math.round((count / totalLessons) * 100);
-      document.getElementById('progressFillBar').style.width = pct + '%';
-      document.getElementById('progressPercent').textContent = pct + '% (' + count + '/' + totalLessons + ' Bài hoàn thành)';
-
-      for (let i = 1; i <= totalLessons; i++) {
-        const btn = document.getElementById('btnDone' + i);
-        if (btn) {
-          if (completedLessons.includes(i)) {
-            btn.innerHTML = '✓ Đã hoàn thành';
-            btn.classList.remove('ghost');
-            btn.classList.add('btn');
-          } else {
-            btn.innerHTML = '○ Đánh dấu hoàn thành';
-            btn.classList.remove('btn');
-            btn.classList.add('ghost');
-          }
-        }
-      }
-    }
-
-    function toggleLesson(num) {
-      if (completedLessons.includes(num)) {
-        completedLessons = completedLessons.filter(x => x !== num);
-      } else {
-        completedLessons.push(num);
-      }
-      localStorage.setItem('vnu_completed_lessons_v2', JSON.stringify(completedLessons));
-      updateProgressUI();
-    }
-
-    // Grade Calculator Logic
-    function calcGrade() {
-      const a = parseFloat(document.getElementById('gAttendance').value) || 0;
-      const q = parseFloat(document.getElementById('gQuiz').value) || 0;
-      const m = parseFloat(document.getElementById('gMid').value) || 0;
-      const f = parseFloat(document.getElementById('gFinal').value) || 0;
-
-      const total = (a * 0.1) + (q * 0.2) + (m * 0.2) + (f * 0.5);
-      const rounded = Math.round(total * 10) / 10;
-      document.getElementById('gradeTotal').textContent = rounded.toFixed(1);
-
-      let gpa = '0.0';
-      let letter = 'F (Trượt)';
-      if (rounded >= 8.5) { gpa = '4.0'; letter = 'Xuất sắc / Giỏi (A/A+)'; }
-      else if (rounded >= 8.0) { gpa = '3.5'; letter = 'Giỏi (B+)'; }
-      else if (rounded >= 7.0) { gpa = '3.0'; letter = 'Khá (B)'; }
-      else if (rounded >= 6.5) { gpa = '2.5'; letter = 'Trung bình khá (C+)'; }
-      else if (rounded >= 5.5) { gpa = '2.0'; letter = 'Trung bình (C)'; }
-      else if (rounded >= 5.0) { gpa = '1.5'; letter = 'Trung bình yếu (D+)'; }
-      else if (rounded >= 4.0) { gpa = '1.0'; letter = 'Yếu (D)'; }
-
-      document.getElementById('gradeLetter').textContent = `Thang 4: ${gpa} · ${letter}`;
-    }
-
-    // Initialize on page load
-    window.addEventListener('DOMContentLoaded', () => {
-      updateProgressUI();
-      calcGrade();
-    });
-  </script>
+  </div>
 </body>
 </html>
