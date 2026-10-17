@@ -1,0 +1,679 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Hướng dẫn xử lý lỗi cơ bản &amp; Giải đáp thắc mắc | VNU1001</title>
+  <style>
+    :root {
+      --ink: #12243c;
+      --muted: #52647a;
+      --blue: #155bd5;
+      --blue-hover: #104bb8;
+      --teal: #009a91;
+      --pale: #edf5ff;
+      --line: #dce5ef;
+      --bg: #f5f8fc;
+      --paper: #ffffff;
+      --shadow: 0 15px 45px rgba(27, 54, 94, .07);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 16px/1.65 system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+    }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    h1, h2, h3, h4 { line-height: 1.25; letter-spacing: -.02em; margin: 0 0 12px; }
+
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 36px 20px 60px;
+    }
+
+    /* Top navigation */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 18px;
+      background: var(--blue);
+      color: #fff !important;
+      font-weight: 750;
+      font-size: 14px;
+      border-radius: 11px;
+      border: 1px solid transparent;
+      text-decoration: none !important;
+      transition: background .2s, transform .1s;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: var(--blue-hover);
+    }
+    .btn.ghost {
+      background: #fff;
+      color: var(--blue) !important;
+      border-color: #b9d3f8;
+    }
+    .btn.ghost:hover {
+      background: var(--pale);
+    }
+    .btn.small {
+      padding: 7px 13px;
+      font-size: 13px;
+      border-radius: 9px;
+    }
+
+    /* Header */
+    .header {
+      margin-bottom: 30px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+    h1 {
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 900;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .lead {
+      font-size: 16px;
+      color: var(--muted);
+      margin: 0;
+      max-width: 800px;
+    }
+
+    /* Search & Filter */
+    .filter-panel {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+      margin-bottom: 26px;
+    }
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: #f8fbfe;
+      border: 1px solid #c9dcef;
+      border-radius: 12px;
+      padding: 4px 14px;
+      margin-bottom: 14px;
+    }
+    .search-box span {
+      font-size: 18px;
+      color: var(--muted);
+      margin-right: 10px;
+    }
+    .search-input {
+      width: 100%;
+      border: none;
+      background: transparent;
+      padding: 10px 0;
+      font-size: 15px;
+      color: var(--ink);
+      outline: none;
+    }
+    .tag-filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .filter-tag {
+      padding: 6px 13px;
+      background: #edf3fa;
+      color: #3b526d;
+      border: 1px solid #d5e2f0;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .filter-tag:hover {
+      background: #e1ecfa;
+      color: var(--blue);
+    }
+    .filter-tag.active {
+      background: var(--blue);
+      color: #fff;
+      border-color: var(--blue);
+    }
+
+    /* Results stats */
+    .results-count {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 18px;
+      font-weight: 600;
+    }
+
+    /* FAQ List */
+    .faq-list {
+      display: grid;
+      gap: 16px;
+    }
+    .faq-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: border-color .2s;
+    }
+    .faq-card:hover {
+      border-color: #b7d3fa;
+    }
+    .faq-header {
+      padding: 20px 22px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      user-select: none;
+    }
+    .faq-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+    .badge-stt {
+      font-size: 12px;
+      font-weight: 900;
+      background: #e9f2ff;
+      color: var(--blue);
+      padding: 2px 9px;
+      border-radius: 8px;
+    }
+    .badge-category {
+      font-size: 12px;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 20px;
+      background: #eef8f6;
+      color: #0b7c6c;
+      border: 1px solid #d0efe9;
+    }
+    .faq-question {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--ink);
+      line-height: 1.4;
+      margin: 0;
+    }
+    .faq-toggle {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #f0f5fc;
+      color: var(--blue);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      font-size: 16px;
+      flex-shrink: 0;
+      transition: transform .2s, background .2s;
+    }
+    .faq-card.open .faq-toggle {
+      transform: rotate(180deg);
+      background: #e1edfc;
+    }
+    .faq-body {
+      display: none;
+      padding: 0 22px 22px;
+      border-top: 1px dashed #e4ecf4;
+      margin-top: 4px;
+      padding-top: 18px;
+    }
+    .faq-card.open .faq-body {
+      display: block;
+    }
+    .faq-answer {
+      font-size: 15px;
+      color: #2b3e55;
+      line-height: 1.7;
+    }
+    .faq-answer p {
+      margin: 8px 0;
+    }
+    .faq-answer ol {
+      margin: 10px 0;
+      padding-left: 22px;
+    }
+    .faq-answer li {
+      margin-bottom: 6px;
+    }
+
+    /* Step boxes */
+    .step-box {
+      background: #f4f9ff;
+      border: 1px solid #d2e4f7;
+      border-radius: 12px;
+      padding: 14px 18px;
+      margin: 12px 0;
+    }
+    .step-box b {
+      color: var(--blue);
+    }
+
+    /* Help banner */
+    .help-box {
+      margin-top: 36px;
+      background: linear-gradient(130deg, #102540, #17487d);
+      color: #fff;
+      padding: 26px 30px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .help-box h3 {
+      font-size: 20px;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .help-box p {
+      color: #d1e5fc;
+      margin-bottom: 16px;
+      font-size: 15px;
+    }
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .link-chip {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      padding: 10px 14px;
+      color: #fff !important;
+      font-size: 13.5px;
+      font-weight: 700;
+      text-decoration: none !important;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background .2s;
+    }
+    .link-chip:hover {
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 45px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13.5px;
+      text-align: center;
+    }
+
+    @media (max-width: 680px) {
+      .wrap { padding: 22px 16px 45px; }
+      .links-grid { grid-template-columns: 1fr; }
+      .faq-header { padding: 16px; }
+      .faq-body { padding: 0 16px 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    
+    <div class="top-nav">
+      <a href="index.html" class="btn ghost small">← Quay lại trang chủ</a>
+      <span class="eyebrow" style="margin-bottom:0">Học phần VNU1001</span>
+    </div>
+
+    <header class="header">
+      <span class="eyebrow">Hỗ trợ học tập</span>
+      <h1>Hướng dẫn xử lý lỗi cơ bản &amp; Giải đáp thắc mắc</h1>
+      <p class="lead">
+        Tổng hợp câu hỏi và cách xử lý các sự cố thường gặp về tài khoản đăng nhập VNU LMS, mã lớp, danh sách sinh viên, nhóm Zalo, lịch Zoom và nộp bài tập.
+      </p>
+    </header>
+
+    <div class="filter-panel">
+      <div class="search-box">
+        <span>🔍</span>
+        <input type="text" id="searchInput" class="search-input" placeholder="Tìm kiếm câu hỏi hoặc từ khóa (ví dụ: mật khẩu, idp, zalo, zoom, mã lớp, nộp bài...)" aria-label="Tìm kiếm">
+      </div>
+      <div class="tag-filters" id="tagFilters">
+        <button class="filter-tag active" data-cat="all">Tất cả (10)</button>
+        <button class="filter-tag" data-cat="Tài khoản và đăng nhập LMS">Đăng nhập LMS</button>
+        <button class="filter-tag" data-cat="Mã lớp và danh sách lớp">Mã lớp &amp; Danh sách</button>
+        <button class="filter-tag" data-cat="Tham gia nhóm Zalo">Nhóm Zalo</button>
+        <button class="filter-tag" data-cat="Hình thức học và lịch Zoom">Lịch Zoom &amp; Hình thức học</button>
+        <button class="filter-tag" data-cat="Tiến độ học tập và nộp bài">Tiến độ &amp; Nộp bài</button>
+        <button class="filter-tag" data-cat="Khai báo thông tin muộn">Khai báo thông tin</button>
+      </div>
+    </div>
+
+    <div class="results-count" id="resultsCount">Hiển thị 10/10 câu hỏi</div>
+
+    <div class="faq-list" id="faqList">
+      
+      <!-- Câu 1 -->
+      <article class="faq-card open" data-cat="Tài khoản và đăng nhập LMS">
+        <div class="faq-header">
+          <div>
+            <div class="faq-meta">
+              <span class="badge-stt">Câu 01</span>
+              <span class="badge-category">Tài khoản và đăng nhập LMS</span>
+            </div>
+            <h2 class="faq-question">Em không đăng nhập được LMS, hệ thống báo “Tài khoản không tồn tại” hoặc sai mật khẩu; em cần làm gì?</h2>
+          </div>
+          <div class="faq-toggle">▼</div>
+        </div>
+        <div class="faq-body">
+          <div class="faq-answer">
+            <p>Sử dụng tài khoản VNU để đăng nhập LMS. Có thể tra cứu tài khoản trong mục <b>“Tài khoản Email VNU”</b> tại <a href="https://daotao.vnu.edu.vn" target="_blank" rel="noopener">https://daotao.vnu.edu.vn</a>.</p>
+            <div class="step-box">
+              <b>Nếu hệ thống báo lỗi, thực hiện lần lượt các bước sau:</b>
+              <ol>
+                <li><b>Xóa bộ nhớ đệm (cache)</b> và dữ liệu duyệt web của trình duyệt.</li>
+                <li>Đăng nhập <a href="https://idp.vnu.edu.vn" target="_blank" rel="noopener">https://idp.vnu.edu.vn</a> bằng tài khoản Email VNU đã được cấp.</li>
+                <li>Truy cập <a href="https://lms.vnu.edu.vn" target="_blank" rel="noopener">https://lms.vnu.edu.vn</a> và tiến hành đăng nhập lại.</li>
+              </ol>
+            </div>
+            <p><i>Lưu ý:</i> Nếu quên mật khẩu hoặc vẫn không đăng nhập được sau các bước trên, vui lòng liên hệ <b>bộ phận CNTT/Email</b> hoặc <b>Phòng Đào tạo</b> của trường bạn đang theo học để được kiểm tra và hỗ trợ tài khoản.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Câu 2 -->
+      <article class="faq-card" data-cat="Mã lớp và danh sách lớp">
+        <div class="faq-header">
+          <div>
+            <div class="faq-meta">
+              <span class="badge-stt">Câu 02</span>
+              <span class="badge-category">Mã lớp và danh sách lớp</span>
+            </div>
+            <h2 class="faq-question">Mã lớp trên LMS khác mã lớp đã đăng ký</h2>
+          </div>
+          <div class="faq-toggle">▼</div>
+        </div>
+        <div class="faq-body">
+          <div class="faq-answer">
+            <p>Mã lớp hiển thị trên LMS khác mã lớp lúc đăng ký <b>không ảnh hưởng đến việc học</b>. Sinh viên kiểm tra lại danh sách lớp đã được cập nhật và tham gia học theo đúng lớp được phân công.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Câu 3 -->
+      <article class="faq-card" data-cat="Mã lớp và danh sách lớp">
+        <div class="faq-header">
+          <div>
+            <div class="faq-meta">
+              <span class="badge-stt">Câu 03</span>
+              <span class="badge-category">Mã lớp và danh sách lớp</span>
+            </div>
+            <h2 class="faq-question">Em có tên ở hai lớp thì phải học lớp nào?</h2>
+          </div>
+          <div class="faq-toggle">▼</div>
+        </div>
+        <div class="faq-body">
+          <div class="faq-answer">
+            <p>Nếu có tên ở hai lớp, đối chiếu lại danh sách để xác định lớp học chính thức.</p>
+            <p>Trường hợp liên quan đến hủy đăng ký học phần, không có tên trong danh sách hoặc cần xử lý thông tin đăng ký, sinh viên liên hệ <b>Phòng Đào tạo</b> của trường đang theo học để được giải quyết dứt điểm.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Câu 4 -->
+      <article class="faq-card" data-cat="Tham gia nhóm Zalo">
+        <div class="faq-header">
+          <div>
+            <div class="faq-meta">
+              <span class="badge-stt">Câu 04</span>
+              <span class="badge-category">Tham gia nhóm Zalo</span>
+            </div>
+            <h2 class="faq-question">Em tìm mã QR / link Zalo ở đâu?</h2>
+          </div>
+          <div class="faq-toggle">▼</div>
+        </div>
+        <div class="faq-body">
+          <div class="faq-answer">
+            <p>Trên lớp học LMS, sinh viên mở mục <b>“DANH SÁCH SINH VIÊN, NHÓM SINH VIÊN”</b> để tìm mã QR và liên kết (link) tham gia nhóm Zalo của lớp.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Câu 5 -->
+      <article class="faq-card" data-cat="Tham gia nhóm Zalo">
+        <div class="faq-header">
+          <div>
+            <div class="faq-meta">
+              <span class="badge-stt">Câu 05</span>
+              <span class="badge-category">Tham gia nhóm Zalo</span>
+            </div>
+            <h2 class="faq-question">Em phải làm gì khi link nhóm bị lỗi hoặc hiển thị lớp cũ?</h2>
+          </div>
+          <div class="faq-toggle">▼</div>
+        </div>
+        <div class="faq-body">
+          <div class="faq-answer">
+            <p>Nếu trang hiển thị danh sách cũ hoặc link nhóm không vào được, hãy <b>nhấn phím F5</b> (hoặc Ctrl + F5) để tải lại dữ liệu mới nhất, sau đó kiểm tra và truy cập link của đúng lớp được phân công.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Câu 6 -->
+      <article class="faq-card" data-cat="Hình thức học và lịch Zoom">
+        <div class="faq-header">
+          <div>
+            <div class="faq-meta">
+              <span class="badge-stt">Câu 06</span>
+              <span class="badge-category">Hình thức học và lịch Zoom</span>
+            </div>
+            <h2 class="faq-question">Học phần được học như thế nào? Em xem lịch học và link Zoom ở đâu?</h2>
+          </div>
+          <div class="faq-toggle">▼</div>
+        </div>
+        <div class="faq-body">
+          <div class="faq-answer">
+            <p>Sinh viên tự học qua <b>video bài giảng và làm bài tập trên LMS</b> theo thời gian đã thiết kế cho từng bài học; chủ động sắp xếp thời gian để hoàn thành đúng hạn.</p>
+            <p>Học phần có <b>4 buổi Zoom</b> để tương tác trực tiếp với giảng viên. Sinh viên xem thông báo, lịch học và link Zoom tại:</p>
+            <ul>
+              <li>Trang thông tin lớp (nơi lấy link Zalo).</li>
+              <li>Danh mục bài học trên LMS của lớp mình.</li>
+            </ul>
+            <p><i>Yêu cầu:</i> Cần hoàn thành trước các bài học tự học và chuẩn bị sẵn nội dung trao đổi trước buổi học. Nếu chưa thấy lịch, thử đăng xuất tài khoản rồi đăng nhập lại.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Câu 7 -->
+      <article class="faq-card" data-cat="Tiến độ học tập và nộp bài">
+        <div class="faq-header">
+          <div>
+            <div class="faq-meta">
+              <span class="badge-stt">Câu 07</span>
+              <span class="badge-category">Tiến độ học tập và nộp bài</span>
+            </div>
+            <h2 class="faq-question">Em đã học nhưng chưa được tích hoàn thành; việc nộp bài tập thực hiện thế nào?</h2>
+          </div>
+          <div class="faq-toggle">▼</div>
+        </div>
+        <div class="faq-body">
+          <div class="faq-answer">
+            <p>Kiểm tra phần theo dõi tiến độ học tập và hoàn thành đầy đủ các yêu cầu của bài học (xem hết video, hoàn thành các hoạt động/quiz nhỏ theo quy định); hệ thống sẽ tự động đánh dấu hoàn thành khi đáp ứng đủ điều kiện.</p>
+            <p>Về nộp bài tập: theo dõi hướng dẫn chi tiết của từng bài trên LMS. Trường hợp chưa có bài hoặc chưa có hướng dẫn nộp, tiếp tục theo dõi các thông báo kế tiếp. Các thắc mắc cụ thể về nội dung, cách trình bày bài làm nên trao đổi trực tiếp với giảng viên trong buổi học Zoom.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Câu 8 -->
+      <article class="faq-card" data-cat="Khai báo thông tin muộn">
+        <div class="faq-header">
+          <div>
+            <div class="faq-meta">
+              <span class="badge-stt">Câu 08</span>
+              <span class="badge-category">Khai báo thông tin muộn</span>
+            </div>
+            <h2 class="faq-question">Em chưa kịp điền biểu mẫu thông tin trước thời hạn thì cần làm gì?</h2>
+          </div>
+          <div class="faq-toggle">▼</div>
+        </div>
+        <div class="faq-body">
+          <div class="faq-answer">
+            <p>Sinh viên nhanh chóng bổ sung thông tin vào biểu mẫu sớm nhất có thể.</p>
+            <p>Việc điểm danh bắt đầu từ buổi học Zoom thứ hai, vì vậy bạn cần theo dõi thông báo và tham gia học đầy đủ theo đúng lịch của lớp. Nếu đồng thời gặp lỗi không đăng nhập được LMS, hãy thực hiện các bước xử lý tại <b>Câu 01</b>.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Câu 9 -->
+      <article class="faq-card" data-cat="Mã lớp và danh sách lớp">
+        <div class="faq-header">
+          <div>
+            <div class="faq-meta">
+              <span class="badge-stt">Câu 09</span>
+              <span class="badge-category">Mã lớp và danh sách lớp</span>
+            </div>
+            <h2 class="faq-question">Em đăng ký lớp ngày này nhưng lại học cùng nhóm các bạn học vào ngày khác có làm sao không?</h2>
+          </div>
+          <div class="faq-toggle">▼</div>
+        </div>
+        <div class="faq-body">
+          <div class="faq-answer">
+            <p>Trường (HUS) đã thực hiện chia lại lớp và sắp xếp các buổi học trực tuyến vào các buổi tối, vì vậy sinh viên sẽ học theo lịch mới.</p>
+            <p><b>Việc này không ảnh hưởng</b> tới lịch trình học tập trên lớp của sinh viên.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Câu 10 -->
+      <article class="faq-card" data-cat="Tiến độ học tập và nộp bài">
+        <div class="faq-header">
+          <div>
+            <div class="faq-meta">
+              <span class="badge-stt">Câu 10</span>
+              <span class="badge-category">Tiến độ học tập và nộp bài</span>
+            </div>
+            <h2 class="faq-question">Em nộp bài ở đâu và như thế nào?</h2>
+          </div>
+          <div class="faq-toggle">▼</div>
+        </div>
+        <div class="faq-body">
+          <div class="faq-answer">
+            <p>Sinh viên nộp bài trực tiếp trên hệ thống LMS. Nhà trường và giảng viên sẽ có hướng dẫn cụ thể về hình thức và định dạng nộp bài đối với từng bài tập.</p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Quick Links & Contact -->
+    <div class="help-box">
+      <h3>Cổng thông tin &amp; Đường dẫn quan trọng</h3>
+      <p>Truy cập các cổng dịch vụ chính thức của Đại học Quốc gia Hà Nội để tra cứu tài khoản và học trực tuyến:</p>
+      <div class="links-grid">
+        <a href="https://daotao.vnu.edu.vn" target="_blank" rel="noopener" class="link-chip">
+          <span>🎓</span> daotao.vnu.edu.vn
+        </a>
+        <a href="https://idp.vnu.edu.vn" target="_blank" rel="noopener" class="link-chip">
+          <span>🔐</span> idp.vnu.edu.vn
+        </a>
+        <a href="https://lms.vnu.edu.vn" target="_blank" rel="noopener" class="link-chip">
+          <span>💻</span> lms.vnu.edu.vn
+        </a>
+      </div>
+    </div>
+
+    <div style="margin-top:25px; text-align:center;">
+      <a href="index.html" class="btn">← Quay lại trang chủ học liệu</a>
+    </div>
+
+    <footer>
+      Học phần: Nhập môn công nghệ số và ứng dụng trí tuệ nhân tạo (VNU1001).
+    </footer>
+
+  </div>
+
+  <script>
+    'use strict';
+    const cards = document.querySelectorAll('.faq-card');
+    const searchInput = document.getElementById('searchInput');
+    const tagButtons = document.querySelectorAll('.filter-tag');
+    const resultsCount = document.getElementById('resultsCount');
+
+    let currentCategory = 'all';
+    let searchQuery = '';
+
+    // Toggle accordion
+    cards.forEach(card => {
+      card.querySelector('.faq-header').addEventListener('click', () => {
+        card.classList.toggle('open');
+      });
+    });
+
+    // Filtering logic
+    function filterFAQs() {
+      let visibleCount = 0;
+      const q = searchQuery.toLowerCase().trim();
+
+      cards.forEach(card => {
+        const cat = card.getAttribute('data-cat') || '';
+        const text = card.textContent.toLowerCase();
+
+        const matchCat = (currentCategory === 'all' || cat.includes(currentCategory));
+        const matchSearch = (!q || text.includes(q));
+
+        if (matchCat && matchSearch) {
+          card.style.display = 'block';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      resultsCount.textContent = `Hiển thị ${visibleCount}/${cards.length} câu hỏi`;
+    }
+
+    // Search input
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      filterFAQs();
+    });
+
+    // Category tags
+    tagButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tagButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentCategory = btn.getAttribute('data-cat');
+        filterFAQs();
+      });
+    });
+  </script>
+</body>
+</html>
