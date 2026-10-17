@@ -266,10 +266,150 @@
       border-radius: 20px;
     }
     .badge-cat.lesson { background: #e0f2fe; color: #0369a1; }
-    .badge-cat.zoom { background: #fef3c7; color: #b45309; }
+    .badge-cat.zoom {
+      background: #ea580c;
+      color: #ffffff;
+      font-weight: 850;
+      border: 1px solid #c2410c;
+      box-shadow: 0 2px 6px rgba(234, 88, 12, 0.28);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
     .badge-cat.midterm { background: #dbeafe; color: #1d4ed8; }
     .badge-cat.final { background: #fae8ff; color: #86198f; }
     .badge-cat.info { background: #f1f5f9; color: #475569; }
+
+    /* Special highlight for Online Zoom Cards */
+    .event-card[data-type="zoom"] {
+      background: linear-gradient(135deg, #fffdf8 0%, #fff9ee 45%, #fff4e0 100%);
+      border: 2px solid #f59e0b;
+      border-left: 8px solid #ea580c;
+      box-shadow: 0 10px 30px rgba(234, 88, 12, 0.12);
+    }
+    .event-card[data-type="zoom"]:hover {
+      border-color: #d97706;
+      border-left-color: #c2410c;
+      box-shadow: 0 14px 38px rgba(234, 88, 12, 0.22);
+      transform: translateY(-2px);
+    }
+    .event-card[data-type="zoom"] .event-title {
+      color: #9a3412;
+      font-size: 18.5px;
+    }
+    .event-card[data-type="zoom"] .date-badge {
+      background: #ffedd5;
+      color: #9a3412;
+      border: 1.5px solid #fdba74;
+      font-weight: 850;
+    }
+    .event-card[data-type="zoom"] .event-notes {
+      background: #ffffff;
+      border: 1.5px solid #fde68a;
+      color: #78350f;
+    }
+    .event-card[data-type="zoom"] .badge-stt {
+      background: #ffedd5;
+      color: #c2410c;
+    }
+
+    /* Live pulsating indicator */
+    .live-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background-color: #ef4444;
+      border-radius: 50%;
+      box-shadow: 0 0 0 rgba(239, 68, 68, 0.7);
+      animation: livePulse 1.6s infinite;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+    @keyframes livePulse {
+      0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.8); }
+      70% { box-shadow: 0 0 0 7px rgba(239, 68, 68, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+    }
+
+    /* Online highlight banner */
+    .online-highlight-banner {
+      background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+      border: 2px solid #fdba74;
+      border-left: 8px solid #ea580c;
+      border-radius: 16px;
+      padding: 20px 22px;
+      margin-bottom: 24px;
+      box-shadow: 0 8px 24px rgba(234, 88, 12, 0.09);
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .online-banner-icon {
+      font-size: 30px;
+      line-height: 1;
+    }
+    .online-banner-content {
+      flex: 1;
+    }
+    .online-banner-title {
+      font-size: 15px;
+      font-weight: 900;
+      color: #9a3412;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: .02em;
+    }
+    .online-banner-desc {
+      font-size: 14px;
+      color: #7c2d12;
+      margin: 0 0 12px;
+      line-height: 1.55;
+    }
+    .online-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+      gap: 10px;
+    }
+    .online-pill {
+      background: #ffffff;
+      border: 1px solid #fed7aa;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 13px;
+      color: #7c2d12;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    }
+    .online-pill b {
+      color: #c2410c;
+    }
+
+    /* Zoom tag filter button */
+    .filter-tag[data-type="zoom"] {
+      background: #ffedd5;
+      color: #9a3412;
+      border-color: #fdba74;
+    }
+    .filter-tag[data-type="zoom"]:hover, .filter-tag[data-type="zoom"].active {
+      background: #ea580c !important;
+      color: #ffffff !important;
+      border-color: #c2410c !important;
+    }
+
+    /* Zoom stat card highlight */
+    .stat-card.zoom-stat {
+      background: linear-gradient(135deg, #fff7ed, #ffedd5);
+      border-color: #fdba74;
+    }
+    .stat-card.zoom-stat b {
+      color: #ea580c;
+    }
+    .stat-card.zoom-stat span {
+      color: #9a3412;
+      font-weight: 700;
+    }
 
     .date-badge {
       display: inline-flex;
@@ -338,6 +478,30 @@
       background: #f8fbff;
     }
 
+    /* Zoom row in table view */
+    .sched-table tr.row-zoom td {
+      background: #fffbeb !important;
+      border-top: 2px solid #f59e0b;
+      border-bottom: 2px solid #f59e0b;
+      color: #7c2d12;
+    }
+    .sched-table tr.row-zoom td:first-child {
+      border-left: 6px solid #ea580c;
+    }
+    .tag-online-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #ea580c;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 850;
+      padding: 2px 7px;
+      border-radius: 6px;
+      margin-left: 8px;
+      letter-spacing: .02em;
+    }
+
     /* Footer */
     footer {
       margin-top: 50px;
@@ -353,6 +517,8 @@
       .stats-strip { grid-template-columns: repeat(2, 1fr); }
       .event-card { padding: 16px; }
       .event-top { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .online-highlight-banner { flex-direction: column; padding: 16px; }
+      .online-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -382,13 +548,45 @@
         <b>7 Bài học</b>
         <span>Học liệu trên VNU LMS</span>
       </div>
-      <div class="stat-card">
-        <b>4 Buổi Zoom</b>
-        <span>Tương tác với giảng viên</span>
+      <div class="stat-card zoom-stat">
+        <b>🎥 4 Buổi Zoom</b>
+        <span>Học trực tuyến có điểm danh</span>
       </div>
       <div class="stat-card">
         <b>2 Kỳ đánh giá</b>
         <span>Giữa kỳ &amp; Cuối kỳ</span>
+      </div>
+    </div>
+
+    <!-- Online highlight banner -->
+    <div class="online-highlight-banner">
+      <div class="online-banner-icon">🎥</div>
+      <div class="online-banner-content">
+        <div class="online-banner-title">
+          <span class="live-dot"></span>
+          <b>Lưu ý 4 buổi học trực tuyến (Online Zoom) với Giảng viên</b>
+        </div>
+        <p class="online-banner-desc">
+          Sinh viên bắt buộc tham gia các buổi học trực tuyến đúng khung giờ của lớp được phân công để tương tác trực tiếp với giảng viên và tính điểm chuyên cần (10%):
+        </p>
+        <div class="online-grid">
+          <div class="online-pill">
+            <b>Buổi 1: 06/10/2026</b><br>
+            <span>Khai giảng &amp; Hướng dẫn môn học</span>
+          </div>
+          <div class="online-pill">
+            <b>Buổi 2: 26/10 – 02/11/2026</b><br>
+            <span>Giải đáp Bài 1–2 · <span style="color:#b91c1c;font-weight:700">Bắt đầu điểm danh</span></span>
+          </div>
+          <div class="online-pill">
+            <b>Buổi 3: 16/11 – 23/11/2026</b><br>
+            <span>Hướng dẫn dự án nhóm &amp; ôn giữa kỳ</span>
+          </div>
+          <div class="online-pill">
+            <b>Buổi 4: 28/12/2026 – 04/01/2027</b><br>
+            <span>Tổng kết học phần &amp; Ôn thi cuối kỳ</span>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -400,8 +598,8 @@
       </div>
       <div class="tag-filters">
         <button class="filter-tag active" data-type="all">Tất cả mốc (17)</button>
+        <button class="filter-tag" data-type="zoom">🔴 4 Buổi Online Zoom (4)</button>
         <button class="filter-tag" data-type="lesson">📖 Bài học LMS (7)</button>
-        <button class="filter-tag" data-type="zoom">🎥 4 Buổi Zoom (4)</button>
         <button class="filter-tag" data-type="midterm">🔷 Đánh giá giữa kỳ</button>
         <button class="filter-tag" data-type="final">🟣 Đánh giá cuối kỳ</button>
         <button class="filter-tag" data-type="info">ℹ️ Thông tin chung</button>
@@ -468,11 +666,11 @@
         <div class="event-top">
           <div class="event-badges">
             <span class="badge-stt">Mục 04</span>
-            <span class="badge-cat zoom">🎥 Buổi Zoom 1</span>
+            <span class="badge-cat zoom"><span class="live-dot"></span>🎥 Buổi Zoom 1 (Online)</span>
           </div>
           <span class="date-badge">📅 06/10/2026</span>
         </div>
-        <h2 class="event-title">Buổi học trực tiếp 1 (Zoom): Khai giảng</h2>
+        <h2 class="event-title">Buổi học trực tiếp 1 (Zoom): Khai giảng môn học</h2>
         <div class="event-notes">
           <b>Khai giảng môn học:</b> Giới thiệu phương pháp học trực tuyến, cách sử dụng VNU LMS, làm quen giảng viên và giải đáp các câu hỏi đầu khóa.
         </div>
@@ -513,7 +711,7 @@
         <div class="event-top">
           <div class="event-badges">
             <span class="badge-stt">Mục 07</span>
-            <span class="badge-cat zoom">🎥 Buổi Zoom 2</span>
+            <span class="badge-cat zoom"><span class="live-dot"></span>🎥 Buổi Zoom 2 (Online)</span>
           </div>
           <span class="date-badge">📅 26/10/2026 – 02/11/2026</span>
         </div>
@@ -558,7 +756,7 @@
         <div class="event-top">
           <div class="event-badges">
             <span class="badge-stt">Mục 10</span>
-            <span class="badge-cat zoom">🎥 Buổi Zoom 3</span>
+            <span class="badge-cat zoom"><span class="live-dot"></span>🎥 Buổi Zoom 3 (Online)</span>
           </div>
           <span class="date-badge">📅 16/11/2026 – 23/11/2026</span>
         </div>
@@ -652,7 +850,7 @@
         <div class="event-top">
           <div class="event-badges">
             <span class="badge-stt">Mục 16</span>
-            <span class="badge-cat zoom">🎥 Buổi Zoom 4</span>
+            <span class="badge-cat zoom"><span class="live-dot"></span>🎥 Buổi Zoom 4 (Online)</span>
           </div>
           <span class="date-badge">📅 28/12/2026 – 04/01/2027</span>
         </div>
@@ -718,10 +916,10 @@
             <td>—</td>
             <td>Mục tiêu, chuẩn đầu ra, đề cương chi tiết.</td>
           </tr>
-          <tr style="background: #fffbeb;">
+          <tr class="row-zoom">
             <td><b>4</b></td>
-            <td><b>BUỔI HỌC TRỰC TIẾP 1 (ZOOM)</b></td>
-            <td>06/10/2026</td>
+            <td><b>BUỔI HỌC TRỰC TIẾP 1 (ZOOM)</b> <span class="tag-online-live"><span class="live-dot" style="margin:0 2px 0 0"></span>ONLINE ZOOM</span></td>
+            <td><b>06/10/2026</b></td>
             <td>—</td>
             <td><b>Khai giảng môn học</b></td>
           </tr>
@@ -739,12 +937,12 @@
             <td>25/10/2026</td>
             <td>Tuần 3</td>
           </tr>
-          <tr style="background: #fffbeb;">
+          <tr class="row-zoom">
             <td><b>7</b></td>
-            <td><b>BUỔI HỌC TRỰC TIẾP 2 (ZOOM)</b></td>
-            <td>26/10/2026</td>
-            <td>02/11/2026</td>
-            <td>ZOOM Giảng viên · Bắt đầu điểm danh</td>
+            <td><b>BUỔI HỌC TRỰC TIẾP 2 (ZOOM)</b> <span class="tag-online-live"><span class="live-dot" style="margin:0 2px 0 0"></span>ONLINE ZOOM</span></td>
+            <td><b>26/10/2026</b></td>
+            <td><b>02/11/2026</b></td>
+            <td><b>ZOOM Giảng viên · <span style="color:#b91c1c">Bắt đầu điểm danh</span></b></td>
           </tr>
           <tr>
             <td><b>8</b></td>
@@ -760,12 +958,12 @@
             <td>15/11/2026</td>
             <td>Tuần 6</td>
           </tr>
-          <tr style="background: #fffbeb;">
+          <tr class="row-zoom">
             <td><b>10</b></td>
-            <td><b>BUỔI HỌC TRỰC TIẾP 3 (ZOOM)</b></td>
-            <td>16/11/2026</td>
-            <td>23/11/2026</td>
-            <td>ZOOM Giảng viên · Hướng dẫn bài tập nhóm</td>
+            <td><b>BUỔI HỌC TRỰC TIẾP 3 (ZOOM)</b> <span class="tag-online-live"><span class="live-dot" style="margin:0 2px 0 0"></span>ONLINE ZOOM</span></td>
+            <td><b>16/11/2026</b></td>
+            <td><b>23/11/2026</b></td>
+            <td><b>ZOOM Giảng viên · Hướng dẫn bài tập nhóm</b></td>
           </tr>
           <tr>
             <td><b>11</b></td>
@@ -806,12 +1004,12 @@
             <td>27/12/2026</td>
             <td>Tuần chuẩn bị dự án cá nhân</td>
           </tr>
-          <tr style="background: #fffbeb;">
+          <tr class="row-zoom">
             <td><b>16</b></td>
-            <td><b>BUỔI HỌC TRỰC TIẾP 4 (ZOOM)</b></td>
-            <td>28/12/2026</td>
-            <td>04/01/2027</td>
-            <td>ZOOM Giảng viên · Tổng kết học phần</td>
+            <td><b>BUỔI HỌC TRỰC TIẾP 4 (ZOOM)</b> <span class="tag-online-live"><span class="live-dot" style="margin:0 2px 0 0"></span>ONLINE ZOOM</span></td>
+            <td><b>28/12/2026</b></td>
+            <td><b>04/01/2027</b></td>
+            <td><b>ZOOM Giảng viên · Tổng kết học phần</b></td>
           </tr>
           <tr style="background: #faf5ff;">
             <td><b>17</b></td>
