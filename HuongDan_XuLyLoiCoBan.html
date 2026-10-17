@@ -362,6 +362,156 @@
       margin: 0 !important;
     }
 
+    /* Video Section */
+    .video-section {
+      margin-bottom: 28px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+    .video-section-header {
+      margin-bottom: 18px;
+    }
+    .video-section-header h2 {
+      font-size: 21px;
+      font-weight: 850;
+      color: var(--ink);
+      margin: 4px 0 6px;
+    }
+    .section-desc {
+      color: var(--muted);
+      font-size: 14.5px;
+      margin: 0;
+    }
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .video-card {
+      background: #f8fbfe;
+      border: 1px solid #dce8f5;
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform .2s, border-color .2s, box-shadow .2s;
+    }
+    .video-card:hover {
+      transform: translateY(-2px);
+      border-color: #b7d3fa;
+      box-shadow: 0 8px 24px rgba(21, 91, 213, 0.08);
+    }
+    .video-media {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      overflow: hidden;
+    }
+    .video-thumb-link {
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    .video-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .3s ease;
+    }
+    .video-thumb-link:hover .video-thumb {
+      transform: scale(1.04);
+    }
+    .play-btn-overlay {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      background: rgba(18, 36, 60, 0.28);
+      transition: background .2s;
+    }
+    .video-thumb-link:hover .play-btn-overlay {
+      background: rgba(18, 36, 60, 0.12);
+    }
+    .play-icon {
+      width: 48px;
+      height: 48px;
+      background: #cc0000;
+      color: #fff;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 17px;
+      padding-left: 3px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      transition: transform .2s, background .2s;
+    }
+    .video-thumb-link:hover .play-icon {
+      transform: scale(1.12);
+      background: #e60000;
+    }
+    .video-platform-badge {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: rgba(0, 0, 0, 0.75);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
+      letter-spacing: .04em;
+    }
+    .video-content {
+      padding: 16px 18px 18px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .video-title {
+      font-size: 16.5px;
+      font-weight: 800;
+      line-height: 1.35;
+      margin: 0 0 8px;
+    }
+    .video-title a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .video-title a:hover {
+      color: var(--blue);
+      text-decoration: underline;
+    }
+    .video-desc {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.55;
+      margin: 0 0 14px;
+      flex: 1;
+    }
+    .video-callout-box {
+      background: #fff9f0;
+      border: 1px solid #fed8ad;
+      border-radius: 12px;
+      padding: 14px 18px;
+      margin: 12px 0;
+    }
+    .video-callout-box b {
+      color: #b35900;
+    }
+    .video-callout-box ul {
+      margin: 8px 0 0;
+      padding-left: 20px;
+    }
+    .video-callout-box li {
+      margin-bottom: 5px;
+    }
+
     /* Help banner */
     .help-box {
       margin-top: 36px;
@@ -417,6 +567,8 @@
     @media (max-width: 680px) {
       .wrap { padding: 22px 16px 45px; }
       .links-grid { grid-template-columns: 1fr; }
+      .video-grid { grid-template-columns: 1fr; }
+      .video-section { padding: 18px 16px; }
       .support-card { padding: 20px 16px; }
       .support-card-inner { flex-direction: column; text-align: center; }
       .support-actions { justify-content: center; }
@@ -432,6 +584,7 @@
       <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
         <a href="index.html" class="btn ghost small">← Quay lại trang chủ</a>
         <a href="ThoiKhoaBieu_VNU1001.html" class="btn ghost small">📅 Thời khóa biểu</a>
+        <a href="#videos" class="btn ghost small">🎬 Video thao tác</a>
         <a href="#hotro" class="btn small" style="background:#0b7c6c;">🆘 Gửi phiếu hỗ trợ (QR)</a>
       </div>
       <span class="eyebrow" style="margin-bottom:0">Học phần VNU1001</span>
@@ -441,9 +594,70 @@
       <span class="eyebrow">Hỗ trợ học tập</span>
       <h1>Hướng dẫn xử lý lỗi cơ bản &amp; Giải đáp thắc mắc</h1>
       <p class="lead">
-        Tổng hợp câu hỏi và cách xử lý các sự cố thường gặp về tài khoản đăng nhập VNU LMS, mã lớp, danh sách sinh viên, nhóm Zalo, lịch Zoom và nộp bài tập.
+        Tổng hợp câu hỏi và cách xử lý các sự cố thường gặp về tài khoản đăng nhập VNU LMS, mã lớp, danh sách sinh viên, nhóm Zalo, lịch Zoom, nộp bài tập kèm video hướng dẫn thao tác trực quan.
       </p>
     </header>
+
+    <!-- Video hướng dẫn thao tác LMS -->
+    <section class="video-section" id="videos">
+      <div class="video-section-header">
+        <span class="eyebrow" style="margin-bottom:4px;">Học liệu trực quan</span>
+        <h2>📌 Video hướng dẫn thao tác trên LMS</h2>
+        <p class="section-desc">Theo dõi video hướng dẫn từng bước để nắm vững cách làm bài kiểm tra trắc nghiệm (Quiz) và hoàn thành nộp bài tập đúng hạn.</p>
+      </div>
+
+      <div class="video-grid">
+        <!-- Video 1 -->
+        <article class="video-card">
+          <div class="video-media">
+            <a href="https://youtu.be/0o3WnewRD8I" target="_blank" rel="noopener" class="video-thumb-link" title="Xem video Hướng dẫn làm Quiz trên YouTube">
+              <img src="https://img.youtube.com/vi/0o3WnewRD8I/hqdefault.jpg" alt="Video Hướng dẫn làm Quiz" class="video-thumb" loading="lazy">
+              <div class="play-btn-overlay">
+                <span class="play-icon">▶</span>
+              </div>
+              <span class="video-platform-badge">YouTube</span>
+            </a>
+          </div>
+          <div class="video-content">
+            <span class="badge-category" style="display:inline-block; margin-bottom:8px;">Kiểm tra &amp; Đánh giá</span>
+            <h3 class="video-title">
+              <a href="https://youtu.be/0o3WnewRD8I" target="_blank" rel="noopener">Hướng dẫn làm Quiz</a>
+            </h3>
+            <p class="video-desc">Hướng dẫn chi tiết quy trình truy cập bài kiểm tra, trả lời câu hỏi trắc nghiệm, nộp bài Quiz và kiểm tra điểm số trên LMS.</p>
+            <div class="video-action">
+              <a href="https://youtu.be/0o3WnewRD8I" target="_blank" rel="noopener" class="btn small" style="background:#cc0000;">
+                ▶ Xem video làm Quiz
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Video 2 -->
+        <article class="video-card">
+          <div class="video-media">
+            <a href="https://youtu.be/pHGLm8aJwXw" target="_blank" rel="noopener" class="video-thumb-link" title="Xem video Hướng dẫn làm bài tập và nộp bài trên YouTube">
+              <img src="https://img.youtube.com/vi/pHGLm8aJwXw/hqdefault.jpg" alt="Video Hướng dẫn làm bài tập và nộp bài" class="video-thumb" loading="lazy">
+              <div class="play-btn-overlay">
+                <span class="play-icon">▶</span>
+              </div>
+              <span class="video-platform-badge">YouTube</span>
+            </a>
+          </div>
+          <div class="video-content">
+            <span class="badge-category" style="display:inline-block; margin-bottom:8px;">Bài tập &amp; Nộp bài</span>
+            <h3 class="video-title">
+              <a href="https://youtu.be/pHGLm8aJwXw" target="_blank" rel="noopener">Hướng dẫn làm bài tập và nộp bài</a>
+            </h3>
+            <p class="video-desc">Hướng dẫn thao tác mở đề bài tập, tải file tài liệu đính kèm, nộp bài trực tiếp lên hệ thống và kiểm tra trạng thái nộp thành công.</p>
+            <div class="video-action">
+              <a href="https://youtu.be/pHGLm8aJwXw" target="_blank" rel="noopener" class="btn small" style="background:#cc0000;">
+                ▶ Xem video nộp bài
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
 
     <div class="filter-panel">
       <div class="search-box">
@@ -612,6 +826,13 @@
           <div class="faq-answer">
             <p>Kiểm tra phần theo dõi tiến độ học tập và hoàn thành đầy đủ các yêu cầu của bài học (xem hết video, hoàn thành các hoạt động/quiz nhỏ theo quy định); hệ thống sẽ tự động đánh dấu hoàn thành khi đáp ứng đủ điều kiện.</p>
             <p>Về nộp bài tập: theo dõi hướng dẫn chi tiết của từng bài trên LMS. Trường hợp chưa có bài hoặc chưa có hướng dẫn nộp, tiếp tục theo dõi các thông báo kế tiếp. Các thắc mắc cụ thể về nội dung, cách trình bày bài làm nên trao đổi trực tiếp với giảng viên trong buổi học Zoom.</p>
+            <div class="video-callout-box">
+              <b>🎬 Video hướng dẫn thao tác trực quan:</b>
+              <ul>
+                <li><a href="https://youtu.be/0o3WnewRD8I" target="_blank" rel="noopener"><b>Video Hướng dẫn làm Quiz</b> (YouTube)</a> — Cách làm bài kiểm tra và nộp quiz đúng quy định.</li>
+                <li><a href="https://youtu.be/pHGLm8aJwXw" target="_blank" rel="noopener"><b>Video Hướng dẫn làm bài tập và nộp bài</b> (YouTube)</a> — Cách upload bài làm và nộp file lên LMS.</li>
+              </ul>
+            </div>
           </div>
         </div>
       </article>
@@ -671,6 +892,13 @@
         <div class="faq-body">
           <div class="faq-answer">
             <p>Sinh viên nộp bài trực tiếp trên hệ thống LMS. Nhà trường và giảng viên sẽ có hướng dẫn cụ thể về hình thức và định dạng nộp bài đối với từng bài tập.</p>
+            <div class="video-callout-box">
+              <b>🎬 Xem ngay video thao tác từng bước:</b>
+              <p style="margin:6px 0 10px;">Để tránh gặp lỗi định dạng file hoặc chưa xác nhận nộp thành công, sinh viên theo dõi video hướng dẫn:</p>
+              <a href="https://youtu.be/pHGLm8aJwXw" target="_blank" rel="noopener" class="btn small" style="background:#cc0000;">
+                ▶ Video: Hướng dẫn làm bài tập và nộp bài (YouTube)
+              </a>
+            </div>
           </div>
         </div>
       </article>
@@ -723,6 +951,12 @@
         </a>
         <a href="https://forms.gle/umdq8Yv7Sh7Kg4ei6" target="_blank" rel="noopener" class="link-chip" style="background:rgba(0, 154, 145, 0.28); border-color:rgba(0, 206, 194, 0.4);">
           <span>📋</span> Phiếu hỗ trợ SV (Google Form)
+        </a>
+        <a href="https://youtu.be/0o3WnewRD8I" target="_blank" rel="noopener" class="link-chip" style="background:rgba(204, 0, 0, 0.22); border-color:rgba(255, 120, 120, 0.4);">
+          <span>🎬</span> Video: Hướng dẫn làm Quiz
+        </a>
+        <a href="https://youtu.be/pHGLm8aJwXw" target="_blank" rel="noopener" class="link-chip" style="background:rgba(204, 0, 0, 0.22); border-color:rgba(255, 120, 120, 0.4);">
+          <span>🎬</span> Video: Hướng dẫn nộp bài
         </a>
         <a href="ThoiKhoaBieu_VNU1001.html" class="link-chip">
           <span>📅</span> Thời khóa biểu học phần
