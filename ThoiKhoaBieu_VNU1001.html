@@ -1,0 +1,915 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Thời khóa biểu &amp; Các mốc thời gian chính | VNU1001</title>
+  <style>
+    :root {
+      --ink: #12243c;
+      --muted: #52647a;
+      --blue: #155bd5;
+      --blue-hover: #104bb8;
+      --teal: #009a91;
+      --pale: #edf5ff;
+      --line: #dce5ef;
+      --bg: #f5f8fc;
+      --paper: #ffffff;
+      --shadow: 0 15px 45px rgba(27, 54, 94, .07);
+      --radius: 18px;
+      --gold: #d97706;
+      --green: #059669;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 16px/1.65 system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+    }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    h1, h2, h3, h4 { line-height: 1.25; letter-spacing: -.02em; margin: 0 0 10px; }
+
+    .wrap {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 36px 20px 60px;
+    }
+
+    /* Top navigation */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 18px;
+      background: var(--blue);
+      color: #fff !important;
+      font-weight: 750;
+      font-size: 14px;
+      border-radius: 11px;
+      border: 1px solid transparent;
+      text-decoration: none !important;
+      transition: background .2s, transform .1s;
+      cursor: pointer;
+    }
+    .btn:hover { background: var(--blue-hover); }
+    .btn.ghost {
+      background: #fff;
+      color: var(--blue) !important;
+      border-color: #b9d3f8;
+    }
+    .btn.ghost:hover { background: var(--pale); }
+    .btn.small {
+      padding: 7px 13px;
+      font-size: 13px;
+      border-radius: 9px;
+    }
+
+    /* Header */
+    .header {
+      margin-bottom: 28px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+    h1 {
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 900;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .lead {
+      font-size: 16px;
+      color: var(--muted);
+      margin: 0;
+      max-width: 820px;
+    }
+
+    /* Quick stats */
+    .stats-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .stat-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px 18px;
+      box-shadow: var(--shadow);
+    }
+    .stat-card b {
+      display: block;
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--blue);
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+    .stat-card span {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* Filter & Search Panel */
+    .filter-panel {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+      margin-bottom: 26px;
+    }
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: #f8fbfe;
+      border: 1px solid #c9dcef;
+      border-radius: 12px;
+      padding: 4px 14px;
+      margin-bottom: 14px;
+    }
+    .search-box span {
+      font-size: 18px;
+      color: var(--muted);
+      margin-right: 10px;
+    }
+    .search-input {
+      width: 100%;
+      border: none;
+      background: transparent;
+      padding: 10px 0;
+      font-size: 15px;
+      color: var(--ink);
+      outline: none;
+    }
+    .tag-filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .filter-tag {
+      padding: 6px 13px;
+      background: #edf3fa;
+      color: #3b526d;
+      border: 1px solid #d5e2f0;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .filter-tag:hover {
+      background: #e1ecfa;
+      color: var(--blue);
+    }
+    .filter-tag.active {
+      background: var(--blue);
+      color: #fff;
+      border-color: var(--blue);
+    }
+
+    /* Timeline & Cards */
+    .view-toggles {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+    }
+    .event-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 20px 24px;
+      transition: border-color .2s, transform .15s;
+      position: relative;
+    }
+    .event-card:hover {
+      border-color: #b7d3fa;
+      transform: translateY(-2px);
+    }
+    .event-card.current {
+      border: 2px solid #2563eb;
+      background: linear-gradient(180deg, #fbfdff, #edf5ff);
+    }
+    .event-card.current::before {
+      content: '● ĐANG TRONG THỜI GIAN NÀY';
+      position: absolute;
+      top: -11px;
+      right: 22px;
+      background: #2563eb;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 850;
+      padding: 2px 10px;
+      border-radius: 12px;
+      letter-spacing: .06em;
+    }
+
+    .event-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    .event-badges {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .badge-stt {
+      font-size: 12px;
+      font-weight: 900;
+      background: #e9f2ff;
+      color: var(--blue);
+      padding: 3px 9px;
+      border-radius: 8px;
+    }
+    .badge-cat {
+      font-size: 12px;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+    .badge-cat.lesson { background: #e0f2fe; color: #0369a1; }
+    .badge-cat.zoom { background: #fef3c7; color: #b45309; }
+    .badge-cat.midterm { background: #dbeafe; color: #1d4ed8; }
+    .badge-cat.final { background: #fae8ff; color: #86198f; }
+    .badge-cat.info { background: #f1f5f9; color: #475569; }
+
+    .date-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #f0f6ff;
+      border: 1px solid #cce0fc;
+      color: #174ea6;
+      font-size: 13.5px;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 10px;
+      white-space: nowrap;
+    }
+
+    .event-title {
+      font-size: 17.5px;
+      font-weight: 850;
+      color: var(--ink);
+      margin: 0 0 8px;
+    }
+
+    .event-notes {
+      font-size: 14.5px;
+      color: #3f556e;
+      background: #f9fbfe;
+      border: 1px solid #e7f0f9;
+      border-radius: 10px;
+      padding: 10px 14px;
+      margin-top: 10px;
+    }
+    .event-notes b {
+      color: var(--blue);
+    }
+    .alert-text {
+      color: #b91c1c;
+      font-weight: 800;
+    }
+
+    /* Table view */
+    .table-wrap {
+      display: none;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      overflow-x: auto;
+    }
+    .sched-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14.5px;
+      text-align: left;
+    }
+    .sched-table th, .sched-table td {
+      padding: 13px 16px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: middle;
+    }
+    .sched-table th {
+      background: #f1f6fd;
+      color: #17385e;
+      font-weight: 800;
+    }
+    .sched-table tr:hover td {
+      background: #f8fbff;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 50px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13.5px;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .wrap { padding: 20px 16px 45px; }
+      .stats-strip { grid-template-columns: repeat(2, 1fr); }
+      .event-card { padding: 16px; }
+      .event-top { flex-direction: column; align-items: flex-start; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    
+    <div class="top-nav">
+      <a href="index.html" class="btn ghost small">← Quay lại trang chủ</a>
+      <span class="eyebrow" style="margin-bottom:0">Học phần VNU1001 · HK1 2026–2027</span>
+    </div>
+
+    <header class="header">
+      <span class="eyebrow">Kế hoạch học tập</span>
+      <h1>Các mốc thời gian chính của học phần</h1>
+      <p class="lead">
+        Thời khóa biểu chi tiết học kỳ 1 (2026–2027) môn <b>Nhập môn công nghệ số và ứng dụng trí tuệ nhân tạo</b>: lịch tự học 7 bài trên LMS, 4 buổi Zoom trực tiếp, kỳ thi đánh giá giữa kỳ và dự án cuối kỳ.
+      </p>
+    </header>
+
+    <!-- Stats strip -->
+    <div class="stats-strip">
+      <div class="stat-card">
+        <b>15 Tuần</b>
+        <span>Lộ trình học tập</span>
+      </div>
+      <div class="stat-card">
+        <b>7 Bài học</b>
+        <span>Học liệu trên VNU LMS</span>
+      </div>
+      <div class="stat-card">
+        <b>4 Buổi Zoom</b>
+        <span>Tương tác với giảng viên</span>
+      </div>
+      <div class="stat-card">
+        <b>2 Kỳ đánh giá</b>
+        <span>Giữa kỳ &amp; Cuối kỳ</span>
+      </div>
+    </div>
+
+    <!-- Filter Panel -->
+    <div class="filter-panel">
+      <div class="search-box">
+        <span>🔍</span>
+        <input type="text" id="searchInput" class="search-input" placeholder="Tìm kiếm mốc thời gian, bài học, zoom, thi, dự án..." aria-label="Tìm kiếm mốc thời gian">
+      </div>
+      <div class="tag-filters">
+        <button class="filter-tag active" data-type="all">Tất cả mốc (17)</button>
+        <button class="filter-tag" data-type="lesson">📖 Bài học LMS (7)</button>
+        <button class="filter-tag" data-type="zoom">🎥 4 Buổi Zoom (4)</button>
+        <button class="filter-tag" data-type="midterm">🔷 Đánh giá giữa kỳ</button>
+        <button class="filter-tag" data-type="final">🟣 Đánh giá cuối kỳ</button>
+        <button class="filter-tag" data-type="info">ℹ️ Thông tin chung</button>
+      </div>
+    </div>
+
+    <div class="view-toggles">
+      <span id="resultsCount">Hiển thị 17/17 mốc sự kiện</span>
+      <div>
+        <button class="btn small ghost" id="toggleViewBtn" style="padding: 5px 12px;">📊 Xem dạng Bảng</button>
+      </div>
+    </div>
+
+    <!-- Cards Timeline View -->
+    <div class="timeline" id="timelineCards">
+
+      <!-- 1 -->
+      <article class="event-card" data-type="info">
+        <div class="event-top">
+          <div class="event-badges">
+            <span class="badge-stt">Mục 01</span>
+            <span class="badge-cat info">Thông tin lớp học</span>
+          </div>
+          <span class="date-badge">Xuyên suốt học kỳ</span>
+        </div>
+        <h2 class="event-title">Danh sách sinh viên, nhóm sinh viên</h2>
+        <div class="event-notes">
+          Giảng viên theo dõi danh sách SV lớp mình phụ trách, thông báo Phòng Đào tạo kịp thời vấn đề phát sinh. Sinh viên kiểm tra đúng lớp học và nhóm Zalo.
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="event-card" data-type="info">
+        <div class="event-top">
+          <div class="event-badges">
+            <span class="badge-stt">Mục 02</span>
+            <span class="badge-cat info">Thông tin quan trọng</span>
+          </div>
+          <span class="date-badge">Đầu khóa học</span>
+        </div>
+        <h2 class="event-title">Những thông tin đặc biệt quan trọng cần đọc</h2>
+        <div class="event-notes">
+          Sinh viên đọc kỹ các quy định chung, nội quy lớp học, nguyên tắc liêm chính học thuật và yêu cầu chuyên cần trên LMS.
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="event-card" data-type="info">
+        <div class="event-top">
+          <div class="event-badges">
+            <span class="badge-stt">Mục 03</span>
+            <span class="badge-cat info">Thông tin môn học</span>
+          </div>
+          <span class="date-badge">Đầu khóa học</span>
+        </div>
+        <h2 class="event-title">Thông tin về học phần (11 mục)</h2>
+        <div class="event-notes">
+          Giới thiệu cấu trúc học phần VNU1001, chuẩn đầu ra (CLO), ma trận đánh giá, phân bổ tín chỉ và tài liệu học tập.
+        </div>
+      </article>
+
+      <!-- 4 -->
+      <article class="event-card" data-type="zoom">
+        <div class="event-top">
+          <div class="event-badges">
+            <span class="badge-stt">Mục 04</span>
+            <span class="badge-cat zoom">🎥 Buổi Zoom 1</span>
+          </div>
+          <span class="date-badge">📅 06/10/2026</span>
+        </div>
+        <h2 class="event-title">Buổi học trực tiếp 1 (Zoom): Khai giảng</h2>
+        <div class="event-notes">
+          <b>Khai giảng môn học:</b> Giới thiệu phương pháp học trực tuyến, cách sử dụng VNU LMS, làm quen giảng viên và giải đáp các câu hỏi đầu khóa.
+        </div>
+      </article>
+
+      <!-- 5 -->
+      <article class="event-card" data-type="lesson">
+        <div class="event-top">
+          <div class="event-badges">
+            <span class="badge-stt">Mục 05</span>
+            <span class="badge-cat lesson">📖 Bài học LMS</span>
+          </div>
+          <span class="date-badge">📅 05/10/2026 – 18/10/2026 (2 tuần)</span>
+        </div>
+        <h2 class="event-title">Bài 1: Máy tính và các thiết bị ngoại vi (Tuần 1, Tuần 2)</h2>
+        <div class="event-notes">
+          Tự học video, tài liệu và làm bài tập trên LMS: Phần cứng máy tính, hệ điều hành, quản lý tệp tin, mạng LAN/WAN, thiết bị ngoại vi và phần mềm học tập.
+        </div>
+      </article>
+
+      <!-- 6 -->
+      <article class="event-card" data-type="lesson">
+        <div class="event-top">
+          <div class="event-badges">
+            <span class="badge-stt">Mục 06</span>
+            <span class="badge-cat lesson">📖 Bài học LMS</span>
+          </div>
+          <span class="date-badge">📅 19/10/2026 – 25/10/2026 (1 tuần)</span>
+        </div>
+        <h2 class="event-title">Bài 2: Khai thác dữ liệu và thông tin (Tuần 3)</h2>
+        <div class="event-notes">
+          Dữ liệu – thông tin – tri thức (DIKW), Big Data 5V, lưu trữ đám mây &amp; sao lưu 3-2-1, tìm kiếm nâng cao, Google Scholar, thẩm định CRAAP và trích dẫn Harvard.
+        </div>
+      </article>
+
+      <!-- 7 -->
+      <article class="event-card" data-type="zoom">
+        <div class="event-top">
+          <div class="event-badges">
+            <span class="badge-stt">Mục 07</span>
+            <span class="badge-cat zoom">🎥 Buổi Zoom 2</span>
+          </div>
+          <span class="date-badge">📅 26/10/2026 – 02/11/2026</span>
+        </div>
+        <h2 class="event-title">Buổi học trực tiếp 2 (Zoom): Tương tác với Giảng viên</h2>
+        <div class="event-notes">
+          <b>ZOOM Giảng viên:</b> Giải đáp thắc mắc Bài 1 &amp; Bài 2, hướng dẫn phương pháp học Bài 3. <span class="alert-text">Bắt đầu tính điểm danh từ buổi học này.</span>
+        </div>
+      </article>
+
+      <!-- 8 -->
+      <article class="event-card" data-type="lesson">
+        <div class="event-top">
+          <div class="event-badges">
+            <span class="badge-stt">Mục 08</span>
+            <span class="badge-cat lesson">📖 Bài học LMS</span>
+          </div>
+          <span class="date-badge">📅 26/10/2026 – 08/11/2026 (2 tuần)</span>
+        </div>
+        <h2 class="event-title">Bài 3: Tổng quan về trí tuệ nhân tạo (Tuần 4, Tuần 5)</h2>
+        <div class="event-notes">
+          Lịch sử AI, Machine Learning, Deep Learning, Generative AI, mô hình ngôn ngữ lớn (LLM) và kỹ thuật viết prompt có cấu trúc (CRAC, zero-shot, few-shot).
+        </div>
+      </article>
+
+      <!-- 9 -->
+      <article class="event-card" data-type="lesson">
+        <div class="event-top">
+          <div class="event-badges">
+            <span class="badge-stt">Mục 09</span>
+            <span class="badge-cat lesson">📖 Bài học LMS</span>
+          </div>
+          <span class="date-badge">📅 09/11/2026 – 15/11/2026 (1 tuần)</span>
+        </div>
+        <h2 class="event-title">Bài 4: Giao tiếp và hợp tác trong môi trường số (Tuần 6)</h2>
+        <div class="event-notes">
+          Kỹ năng gửi email chuyên nghiệp, họp trực tuyến, văn hóa ứng xử số (netiquette), công cụ làm việc nhóm Google Workspace/Office 365 và ứng dụng AI trong giao tiếp.
+        </div>
+      </article>
+
+      <!-- 10 -->
+      <article class="event-card" data-type="zoom">
+        <div class="event-top">
+          <div class="event-badges">
+            <span class="badge-stt">Mục 10</span>
+            <span class="badge-cat zoom">🎥 Buổi Zoom 3</span>
+          </div>
+          <span class="date-badge">📅 16/11/2026 – 23/11/2026</span>
+        </div>
+        <h2 class="event-title">Buổi học trực tiếp 3 (Zoom): Tương tác với Giảng viên</h2>
+        <div class="event-notes">
+          <b>ZOOM Giảng viên:</b> Hướng dẫn thực hiện bài tập nhóm, giải đáp thắc mắc nội dung Bài 3 &amp; 4, định hướng ôn tập cho kỳ kiểm tra giữa kỳ.
+        </div>
+      </article>
+
+      <!-- 11 -->
+      <article class="event-card" data-type="lesson">
+        <div class="event-top">
+          <div class="event-badges">
+            <span class="badge-stt">Mục 11</span>
+            <span class="badge-cat lesson">📖 Bài học LMS</span>
+          </div>
+          <span class="date-badge">📅 16/11/2026 – 29/11/2026 (2 tuần)</span>
+        </div>
+        <h2 class="event-title">Bài 5: Sáng tạo nội dung số (Tuần 7, Tuần 8)</h2>
+        <div class="event-notes">
+          Quy trình sáng tạo ý tưởng $\rightarrow$ thiết kế $\rightarrow$ xuất bản, bản quyền sở hữu trí tuệ, ứng dụng AI tạo văn bản, hình ảnh, video và bài thuyết trình (Canva, Designer...).
+        </div>
+      </article>
+
+      <!-- 12 -->
+      <article class="event-card" data-type="midterm">
+        <div class="event-top">
+          <div class="event-badges">
+            <span class="badge-stt">Mục 12</span>
+            <span class="badge-cat midterm">🔷 Đánh giá giữa kỳ</span>
+          </div>
+          <span class="date-badge">📅 22/11/2026 – 07/12/2026</span>
+        </div>
+        <h2 class="event-title">Kỳ đánh giá giữa kỳ</h2>
+        <div class="event-notes">
+          <ul>
+            <li><b>12.1. Thi trắc nghiệm giữa kỳ (10%):</b> Từ <b>22/11/2026 đến 07/12/2026</b> trên hệ thống LMS. Nội dung: Module 1, 2, 3 và phần đầu Module 4.</li>
+            <li><b>12.1. Nộp dự án nhóm (20%):</b> Từ <b>01/12/2026 đến 07/12/2026</b>. <span class="alert-text">Hạn chót: 17h00 ngày 07/12/2026</span>.</li>
+            <li><b>12.2. Hoàn thành &amp; thông báo điểm giữa kỳ:</b> Từ <b>08/12/2026 đến 18/12/2026</b>.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- 13 -->
+      <article class="event-card" data-type="lesson">
+        <div class="event-top">
+          <div class="event-badges">
+            <span class="badge-stt">Mục 13</span>
+            <span class="badge-cat lesson">📖 Bài học LMS</span>
+          </div>
+          <span class="date-badge">📅 30/11/2026 – 13/12/2026 (2 tuần)</span>
+        </div>
+        <h2 class="event-title">Bài 6: An toàn và liêm chính học thuật trong môi trường số (Tuần 9, Tuần 10)</h2>
+        <div class="event-notes">
+          Bảo mật thông tin cá nhân, phòng chống tấn công mạng và lừa đảo trực tuyến, liêm chính học thuật, chống đạo văn, các nguyên tắc đạo đức và pháp lý khi sử dụng GenAI.
+        </div>
+      </article>
+
+      <!-- 14 -->
+      <article class="event-card" data-type="lesson">
+        <div class="event-top">
+          <div class="event-badges">
+            <span class="badge-stt">Mục 14</span>
+            <span class="badge-cat lesson">📖 Bài học LMS</span>
+          </div>
+          <span class="date-badge">📅 14/12/2026 – 20/12/2026 (1 tuần)</span>
+        </div>
+        <h2 class="event-title">Bài 7A: AI trong Khoa học Tự nhiên &amp; Kỹ thuật - Công nghệ (Tuần 11)</h2>
+        <div class="event-notes">
+          Module chuyên ngành: Khai thác CSDL khoa học, AI xử lý và trực quan hóa dữ liệu thực nghiệm, mô hình 3D, bản vẽ kỹ thuật, hỗ trợ lập trình và tự động hóa.
+        </div>
+      </article>
+
+      <!-- 15 -->
+      <article class="event-card" data-type="final">
+        <div class="event-top">
+          <div class="event-badges">
+            <span class="badge-stt">Mục 15</span>
+            <span class="badge-cat final">🟣 Chuẩn bị cuối kỳ</span>
+          </div>
+          <span class="date-badge">📅 21/12/2026 – 27/12/2026 (1 tuần)</span>
+        </div>
+        <h2 class="event-title">Hoàn thiện Project cuối kỳ</h2>
+        <div class="event-notes">
+          Sinh viên tập trung hoàn thiện sản phẩm dự án cá nhân, rà soát báo cáo, kiểm tra trích dẫn và chuẩn bị hồ sơ nộp bài.
+        </div>
+      </article>
+
+      <!-- 16 -->
+      <article class="event-card" data-type="zoom">
+        <div class="event-top">
+          <div class="event-badges">
+            <span class="badge-stt">Mục 16</span>
+            <span class="badge-cat zoom">🎥 Buổi Zoom 4</span>
+          </div>
+          <span class="date-badge">📅 28/12/2026 – 04/01/2027</span>
+        </div>
+        <h2 class="event-title">Buổi học trực tiếp 4 (Zoom): Tổng kết học phần</h2>
+        <div class="event-notes">
+          <b>ZOOM Giảng viên:</b> Tổng kết toàn bộ học phần, giải đáp các nội dung ôn tập cuối kỳ, hướng dẫn nộp dự án cá nhân và quy chế thi tập trung.
+        </div>
+      </article>
+
+      <!-- 17 -->
+      <article class="event-card" data-type="final">
+        <div class="event-top">
+          <div class="event-badges">
+            <span class="badge-stt">Mục 17</span>
+            <span class="badge-cat final">🟣 Đánh giá cuối kỳ</span>
+          </div>
+          <span class="date-badge">📅 05/01/2027 – 31/01/2027</span>
+        </div>
+        <h2 class="event-title">Đánh giá cuối kỳ (Tổng kết 60%)</h2>
+        <div class="event-notes">
+          <ul>
+            <li><b>17.1. Sinh viên nộp dự án cá nhân:</b> Từ <b>05/01/2027 đến 10/01/2027</b>. <span class="alert-text">Hạn chót: 17h00 ngày 10/01/2027</span>.</li>
+            <li><b>17.2. Giảng viên chấm dự án cá nhân:</b> Từ <b>11/01/2027 đến 24/01/2027</b>.</li>
+            <li><b>17.3. Thi đánh giá cuối kỳ:</b> Từ <b>11/01/2027 đến 17/01/2027</b> (Thi tập trung theo lịch của trường/ĐHQGHN).</li>
+            <li><b>17.4. Hoàn thành điểm môn học:</b> Từ <b>25/01/2027 đến 31/01/2027</b> (Công bố điểm tổng kết học phần).</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Table View -->
+    <div class="table-wrap" id="tableView">
+      <table class="sched-table">
+        <thead>
+          <tr>
+            <th style="width: 70px;">STT</th>
+            <th>Mục trên lớp học LMS</th>
+            <th style="width: 120px;">Bắt đầu</th>
+            <th style="width: 120px;">Kết thúc</th>
+            <th>Ghi chú &amp; Lưu ý</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>1</b></td>
+            <td>DANH SÁCH SINH VIÊN, NHÓM SINH VIÊN</td>
+            <td>—</td>
+            <td>—</td>
+            <td>Giảng viên theo dõi danh sách lớp phụ trách; SV kiểm tra nhóm Zalo.</td>
+          </tr>
+          <tr>
+            <td><b>2</b></td>
+            <td>NHỮNG THÔNG TIN ĐẶC BIỆT QUAN TRỌNG CẦN ĐỌC</td>
+            <td>—</td>
+            <td>—</td>
+            <td>Quy định học vụ và liêm chính học thuật.</td>
+          </tr>
+          <tr>
+            <td><b>3</b></td>
+            <td>THÔNG TIN VỀ HỌC PHẦN (11 mục)</td>
+            <td>—</td>
+            <td>—</td>
+            <td>Mục tiêu, chuẩn đầu ra, đề cương chi tiết.</td>
+          </tr>
+          <tr style="background: #fffbeb;">
+            <td><b>4</b></td>
+            <td><b>BUỔI HỌC TRỰC TIẾP 1 (ZOOM)</b></td>
+            <td>06/10/2026</td>
+            <td>—</td>
+            <td><b>Khai giảng môn học</b></td>
+          </tr>
+          <tr>
+            <td><b>5</b></td>
+            <td>BÀI 1: MÁY TÍNH VÀ CÁC THIẾT BỊ NGOẠI VI</td>
+            <td>05/10/2026</td>
+            <td>18/10/2026</td>
+            <td>Tuần 1, Tuần 2</td>
+          </tr>
+          <tr>
+            <td><b>6</b></td>
+            <td>BÀI 2: KHAI THÁC DỮ LIỆU VÀ THÔNG TIN</td>
+            <td>19/10/2026</td>
+            <td>25/10/2026</td>
+            <td>Tuần 3</td>
+          </tr>
+          <tr style="background: #fffbeb;">
+            <td><b>7</b></td>
+            <td><b>BUỔI HỌC TRỰC TIẾP 2 (ZOOM)</b></td>
+            <td>26/10/2026</td>
+            <td>02/11/2026</td>
+            <td>ZOOM Giảng viên · Bắt đầu điểm danh</td>
+          </tr>
+          <tr>
+            <td><b>8</b></td>
+            <td>BÀI 3: TỔNG QUAN VỀ TRÍ TUỆ NHÂN TẠO</td>
+            <td>26/10/2026</td>
+            <td>08/11/2026</td>
+            <td>Tuần 4, Tuần 5</td>
+          </tr>
+          <tr>
+            <td><b>9</b></td>
+            <td>BÀI 4: GIAO TIẾP VÀ HỢP TÁC TRONG MÔI TRƯỜNG SỐ</td>
+            <td>09/11/2026</td>
+            <td>15/11/2026</td>
+            <td>Tuần 6</td>
+          </tr>
+          <tr style="background: #fffbeb;">
+            <td><b>10</b></td>
+            <td><b>BUỔI HỌC TRỰC TIẾP 3 (ZOOM)</b></td>
+            <td>16/11/2026</td>
+            <td>23/11/2026</td>
+            <td>ZOOM Giảng viên · Hướng dẫn bài tập nhóm</td>
+          </tr>
+          <tr>
+            <td><b>11</b></td>
+            <td>BÀI 5: SÁNG TẠO NỘI DUNG SỐ</td>
+            <td>16/11/2026</td>
+            <td>29/11/2026</td>
+            <td>Tuần 7, Tuần 8</td>
+          </tr>
+          <tr style="background: #eff6ff;">
+            <td><b>12</b></td>
+            <td><b>ĐÁNH GIÁ GIỮA KỲ</b></td>
+            <td>22/11/2026</td>
+            <td>07/12/2026</td>
+            <td>
+              • Thi trắc nghiệm LMS: 22/11 – 07/12/2026<br>
+              • Nộp dự án nhóm: 01/12 – 07/12/2026 (Hạn chót: 17h, 07/12/2026)<br>
+              • Công bố điểm: 08/12 – 18/12/2026
+            </td>
+          </tr>
+          <tr>
+            <td><b>13</b></td>
+            <td>BÀI 6: AN TOÀN VÀ LIÊM CHÍNH HỌC THUẬT</td>
+            <td>30/11/2026</td>
+            <td>13/12/2026</td>
+            <td>Tuần 9, Tuần 10</td>
+          </tr>
+          <tr>
+            <td><b>14</b></td>
+            <td>BÀI 7A: AI TRONG KHOA HỌC TỰ NHIÊN &amp; KỸ THUẬT</td>
+            <td>14/12/2026</td>
+            <td>20/12/2026</td>
+            <td>Tuần 11 (Module chuyên ngành)</td>
+          </tr>
+          <tr>
+            <td><b>15</b></td>
+            <td>HOÀN THIỆN PROJECT CUỐI KỲ</td>
+            <td>21/12/2026</td>
+            <td>27/12/2026</td>
+            <td>Tuần chuẩn bị dự án cá nhân</td>
+          </tr>
+          <tr style="background: #fffbeb;">
+            <td><b>16</b></td>
+            <td><b>BUỔI HỌC TRỰC TIẾP 4 (ZOOM)</b></td>
+            <td>28/12/2026</td>
+            <td>04/01/2027</td>
+            <td>ZOOM Giảng viên · Tổng kết học phần</td>
+          </tr>
+          <tr style="background: #faf5ff;">
+            <td><b>17</b></td>
+            <td><b>ĐÁNH GIÁ CUỐI KỲ</b></td>
+            <td>05/01/2027</td>
+            <td>31/01/2027</td>
+            <td>
+              • Nộp dự án cá nhân: 05/01 – 10/01/2027 (Hạn chót: 17h, 10/01/2027)<br>
+              • Giảng viên chấm: 11/01 – 24/01/2027<br>
+              • Thi tập trung: 11/01 – 17/01/2027<br>
+              • Hoàn thành điểm môn học: 25/01 – 31/01/2027
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="margin-top: 36px; text-align: center;">
+      <a href="index.html" class="btn">← Quay lại trang chủ học liệu</a>
+    </div>
+
+    <footer>
+      Học phần: Nhập môn công nghệ số và ứng dụng trí tuệ nhân tạo (VNU1001) — Học kỳ 1 năm học 2026–2027.
+    </footer>
+
+  </div>
+
+  <script>
+    'use strict';
+    const cards = document.querySelectorAll('.event-card');
+    const searchInput = document.getElementById('searchInput');
+    const tagButtons = document.querySelectorAll('.filter-tag');
+    const resultsCount = document.getElementById('resultsCount');
+    const toggleViewBtn = document.getElementById('toggleViewBtn');
+    const timelineCards = document.getElementById('timelineCards');
+    const tableView = document.getElementById('tableView');
+
+    let currentFilter = 'all';
+    let searchQuery = '';
+    let isTableView = false;
+
+    // Detect currently active date based on 2026-10-17
+    const today = new Date('2026-10-17');
+    cards.forEach(card => {
+      const text = card.textContent;
+      if (text.includes('05/10/2026 – 18/10/2026')) {
+        card.classList.add('current');
+      }
+    });
+
+    function applyFilters() {
+      let visible = 0;
+      const q = searchQuery.toLowerCase().trim();
+
+      cards.forEach(card => {
+        const type = card.getAttribute('data-type') || '';
+        const text = card.textContent.toLowerCase();
+
+        const matchType = (currentFilter === 'all' || type === currentFilter);
+        const matchSearch = (!q || text.includes(q));
+
+        if (matchType && matchSearch) {
+          card.style.display = 'block';
+          visible++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      resultsCount.textContent = `Hiển thị ${visible}/${cards.length} mốc sự kiện`;
+    }
+
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      applyFilters();
+    });
+
+    tagButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tagButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.getAttribute('data-type');
+        applyFilters();
+      });
+    });
+
+    toggleViewBtn.addEventListener('click', () => {
+      isTableView = !isTableView;
+      if (isTableView) {
+        timelineCards.style.display = 'none';
+        tableView.style.display = 'block';
+        toggleViewBtn.textContent = '📑 Xem dạng Thẻ (Cards)';
+      } else {
+        timelineCards.style.display = 'grid';
+        tableView.style.display = 'none';
+        toggleViewBtn.textContent = '📊 Xem dạng Bảng';
+      }
+    });
+  </script>
+</body>
+</html>
