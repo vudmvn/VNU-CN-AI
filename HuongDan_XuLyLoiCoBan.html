@@ -285,6 +285,83 @@
       color: var(--blue);
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Support card / QR Box */
+    .support-card {
+      margin-top: 36px;
+      background: var(--paper);
+      border: 2px solid #b7d3fa;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 26px 28px;
+      overflow: hidden;
+    }
+    .support-card-inner {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .support-qr-box {
+      flex-shrink: 0;
+      text-align: center;
+      background: #f4f8fe;
+      border: 1px solid #d0e1f7;
+      border-radius: 14px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .support-qr-img {
+      width: 170px;
+      height: 170px;
+      border-radius: 10px;
+      display: block;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      background: #fff;
+      transition: transform .2s ease;
+    }
+    .support-qr-img:hover {
+      transform: scale(1.03);
+    }
+    .qr-label {
+      font-size: 12px;
+      font-weight: 750;
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    .support-info {
+      flex: 1;
+    }
+    .support-info h2 {
+      font-size: 21px;
+      font-weight: 850;
+      color: var(--ink);
+      margin: 0 0 10px;
+    }
+    .support-info p {
+      margin: 0 0 16px;
+      color: #3e5066;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+    .support-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .support-note {
+      font-size: 13.5px !important;
+      color: var(--muted) !important;
+      margin: 0 !important;
+    }
+
     /* Help banner */
     .help-box {
       margin-top: 36px;
@@ -306,7 +383,7 @@
     }
     .links-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 12px;
     }
     .link-chip {
@@ -340,6 +417,9 @@
     @media (max-width: 680px) {
       .wrap { padding: 22px 16px 45px; }
       .links-grid { grid-template-columns: 1fr; }
+      .support-card { padding: 20px 16px; }
+      .support-card-inner { flex-direction: column; text-align: center; }
+      .support-actions { justify-content: center; }
       .faq-header { padding: 16px; }
       .faq-body { padding: 0 16px 16px; }
     }
@@ -352,6 +432,7 @@
       <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
         <a href="index.html" class="btn ghost small">← Quay lại trang chủ</a>
         <a href="ThoiKhoaBieu_VNU1001.html" class="btn ghost small">📅 Thời khóa biểu</a>
+        <a href="#hotro" class="btn small" style="background:#0b7c6c;">🆘 Gửi phiếu hỗ trợ (QR)</a>
       </div>
       <span class="eyebrow" style="margin-bottom:0">Học phần VNU1001</span>
     </div>
@@ -407,7 +488,7 @@
                 <li>Truy cập <a href="https://lms.vnu.edu.vn" target="_blank" rel="noopener">https://lms.vnu.edu.vn</a> và tiến hành đăng nhập lại.</li>
               </ol>
             </div>
-            <p><i>Lưu ý:</i> Nếu quên mật khẩu hoặc vẫn không đăng nhập được sau các bước trên, vui lòng liên hệ <b>bộ phận CNTT/Email</b> hoặc <b>Phòng Đào tạo</b> của trường bạn đang theo học để được kiểm tra và hỗ trợ tài khoản.</p>
+            <p><i>Lưu ý:</i> Nếu quên mật khẩu hoặc vẫn không đăng nhập được sau các bước trên, vui lòng gửi phản ánh qua <a href="#hotro"><b>Phiếu hỗ trợ SV (quét mã QR ở dưới)</b></a> hoặc liên hệ <b>bộ phận CNTT/Email</b> hoặc <b>Phòng Đào tạo</b> của trường bạn đang theo học để được kiểm tra và hỗ trợ tài khoản.</p>
           </div>
         </div>
       </article>
@@ -596,6 +677,36 @@
 
     </div>
 
+    <!-- Kênh tiếp nhận hỗ trợ & Mã QR -->
+    <section class="support-card" id="hotro">
+      <div class="support-card-inner">
+        <div class="support-qr-box">
+          <a href="https://forms.gle/umdq8Yv7Sh7Kg4ei6" target="_blank" rel="noopener" title="Bấm vào để mở biểu mẫu hỗ trợ">
+            <img src="QR_hotro.jpg" alt="Mã QR Phiếu hỗ trợ SV VNU1001" class="support-qr-img" width="170" height="170">
+          </a>
+          <span class="qr-label">Quét mã bằng Zalo / Camera</span>
+        </div>
+        <div class="support-info">
+          <div class="badge-category" style="display:inline-block; margin-bottom:10px;">Kênh hỗ trợ trực tuyến</div>
+          <h2>Bạn gặp sự cố khác hoặc cần trợ giúp thêm?</h2>
+          <p>
+            Nếu bạn gặp sự cố kỹ thuật về tài khoản LMS, IDP, sai lệch mã lớp hoặc các vướng mắc chưa được giải đáp trong 10 câu hỏi phía trên, hãy gửi thông tin qua <b>Phiếu hỗ trợ sinh viên VNU1001 HK1 (2026–2027)</b> để bộ phận kỹ thuật và giảng viên kịp thời hỗ trợ.
+          </p>
+          <div class="support-actions">
+            <a href="https://forms.gle/umdq8Yv7Sh7Kg4ei6" target="_blank" rel="noopener" class="btn">
+              📋 Gửi phiếu hỗ trợ (Google Form)
+            </a>
+            <a href="QR_hotro.jpg" download="QR_hotro_VNU1001.jpg" class="btn ghost">
+              💾 Tải ảnh mã QR
+            </a>
+          </div>
+          <p class="support-note">
+            💡 <i>Gợi ý:</i> Bạn có thể bấm trực tiếp vào nút biểu mẫu trên hoặc quét mã QR bằng Zalo / Máy ảnh điện thoại để phản ánh sự cố nhanh chóng.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- Quick Links & Contact -->
     <div class="help-box">
       <h3>Cổng thông tin &amp; Đường dẫn quan trọng</h3>
@@ -609,6 +720,9 @@
         </a>
         <a href="https://lms.vnu.edu.vn" target="_blank" rel="noopener" class="link-chip">
           <span>💻</span> lms.vnu.edu.vn
+        </a>
+        <a href="https://forms.gle/umdq8Yv7Sh7Kg4ei6" target="_blank" rel="noopener" class="link-chip" style="background:rgba(0, 154, 145, 0.28); border-color:rgba(0, 206, 194, 0.4);">
+          <span>📋</span> Phiếu hỗ trợ SV (Google Form)
         </a>
         <a href="ThoiKhoaBieu_VNU1001.html" class="link-chip">
           <span>📅</span> Thời khóa biểu học phần
