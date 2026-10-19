@@ -10,3 +10,5 @@ Học liệu trực tuyến học phần **Nhập môn công nghệ số và ứ
 * [`HuongDan_XuLyLoiCoBan.html`](HuongDan_XuLyLoiCoBan.html) — Sổ tay hướng dẫn xử lý lỗi cơ bản & giải đáp thắc mắc sinh viên (LMS, mã lớp, Zoom, Zalo, video làm Quiz/nộp bài, biểu mẫu & mã QR hỗ trợ)
 * [`Chuong1_BaiGiang_TuongTac.html`](Chuong1_BaiGiang_TuongTac.html) & [`Chuong1_Quiz_TuChamDiem.html`](Chuong1_Quiz_TuChamDiem.html) — Bài giảng & Quiz tự chấm Chương 1
 * [`Chuong2_BaiGiang_TuongTac.html`](Chuong2_BaiGiang_TuongTac.html) & [`Chuong2_Quiz_TuChamDiem.html`](Chuong2_Quiz_TuChamDiem.html) — Bài giảng & Quiz tự chấm Chương 2
+* [`Chuong3_BaiGiang_TuongTac.html`](Chuong3_BaiGiang_TuongTac.html) & [`Chuong3_Quiz_TuChamDiem.html`](Chuong3_Quiz_TuChamDiem.html) — Bài giảng & Quiz tự chấm Chương 3
+* [`Chuong4_BaiGiang_TuongTac.html`](Chuong4_BaiGiang_TuongTac.html) & [`Chuong4_Quiz_TuChamDiem.html`](Chuong4_Quiz_TuChamDiem.html) — Bài giảng & Quiz tự chấm Chương 4
