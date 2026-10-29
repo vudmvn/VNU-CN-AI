@@ -14,3 +14,4 @@ Học liệu trực tuyến học phần **Nhập môn công nghệ số và ứ
 * [`Chuong4_BaiGiang_TuongTac.html`](Chuong4_BaiGiang_TuongTac.html) & [`Chuong4_Quiz_TuChamDiem.html`](Chuong4_Quiz_TuChamDiem.html) — Bài giảng & Quiz tự chấm Chương 4
 * [`Chuong5_BaiGiang_TuongTac.html`](Chuong5_BaiGiang_TuongTac.html) & [`Chuong5_Quiz_TuChamDiem.html`](Chuong5_Quiz_TuChamDiem.html) — Bài giảng & Quiz tự chấm Chương 5
 * [`Chuong6_BaiGiang_TuongTac.html`](Chuong6_BaiGiang_TuongTac.html) & [`Chuong6_Quiz_TuChamDiem.html`](Chuong6_Quiz_TuChamDiem.html) — Bài giảng & Quiz tự chấm Chương 6
+* [`Chuong7B_BaiGiang_TuongTac.html`](Chuong7B_BaiGiang_TuongTac.html) & [`Chuong7B_Quiz_TuChamDiem.html`](Chuong7B_Quiz_TuChamDiem.html) — Bài giảng & Quiz tự chấm Module 7B (AI trong KHXH, Nhân văn & Nghệ thuật)
