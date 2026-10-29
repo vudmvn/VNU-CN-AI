@@ -12,3 +12,5 @@ Học liệu trực tuyến học phần **Nhập môn công nghệ số và ứ
 * [`Chuong2_BaiGiang_TuongTac.html`](Chuong2_BaiGiang_TuongTac.html) & [`Chuong2_Quiz_TuChamDiem.html`](Chuong2_Quiz_TuChamDiem.html) — Bài giảng & Quiz tự chấm Chương 2
 * [`Chuong3_BaiGiang_TuongTac.html`](Chuong3_BaiGiang_TuongTac.html) & [`Chuong3_Quiz_TuChamDiem.html`](Chuong3_Quiz_TuChamDiem.html) — Bài giảng & Quiz tự chấm Chương 3
 * [`Chuong4_BaiGiang_TuongTac.html`](Chuong4_BaiGiang_TuongTac.html) & [`Chuong4_Quiz_TuChamDiem.html`](Chuong4_Quiz_TuChamDiem.html) — Bài giảng & Quiz tự chấm Chương 4
+* [`Chuong5_BaiGiang_TuongTac.html`](Chuong5_BaiGiang_TuongTac.html) & [`Chuong5_Quiz_TuChamDiem.html`](Chuong5_Quiz_TuChamDiem.html) — Bài giảng & Quiz tự chấm Chương 5
+* [`Chuong6_BaiGiang_TuongTac.html`](Chuong6_BaiGiang_TuongTac.html) & [`Chuong6_Quiz_TuChamDiem.html`](Chuong6_Quiz_TuChamDiem.html) — Bài giảng & Quiz tự chấm Chương 6
