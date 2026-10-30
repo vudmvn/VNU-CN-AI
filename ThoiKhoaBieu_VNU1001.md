@@ -27,7 +27,7 @@ Tài liệu tổng hợp tiến độ và các mốc thời gian học tập, ki
 | 12.1 | Nộp dự án nhóm | 01/12/2026 | 07/12/2026 | **Hạn cuối 17h, 07/12/2026** trên LMS |
 | 12.2 | Hoàn thành điểm giữa kỳ | 08/12/2026 | 18/12/2026 | Thông báo điểm giữa kỳ cho sinh viên |
 | **13** | **BÀI 6: AN TOÀN VÀ LIÊM CHÍNH HỌC THUẬT TRONG MÔI TRƯỜNG SỐ** (Tuần 9, Tuần 10) | 30/11/2026 | 13/12/2026 | Bảo mật thông tin, đạo đức AI, liêm chính học thuật |
-| **14** | **BÀI 7A: AI TRONG KHOA HỌC TỰ NHIÊN & KỸ THUẬT - CÔNG NGHỆ** (Tuần 11) | 14/12/2026 | 20/12/2026 | Module chuyên ngành tự chọn (Lĩnh vực KHTN & Công nghệ) |
+| **14** | **BÀI 7B: AI TRONG KHOA HỌC XÃ HỘI, NHÂN VĂN & NGHỆ THUẬT** (Tuần 11) | 14/12/2026 | 20/12/2026 | Module chuyên ngành tự chọn (Lĩnh vực KHXH, Nhân văn & Nghệ thuật: Phân tích văn bản, kho tư liệu lịch sử, sáng tác văn học & nghệ thuật đa phương tiện) |
 | **15** | **HOÀN THIỆN PROJECT CUỐI KỲ** | 21/12/2026 | 27/12/2026 | Hoàn thiện sản phẩm/dự án cá nhân cuối kỳ |
 | **16** | 🔴 **BUỔI HỌC TRỰC TIẾP 4 (ONLINE ZOOM)** | **28/12/2026** | **04/01/2027** | **ZOOM GV:** Tổng kết học phần, ôn tập thi cuối kỳ |
 | **17** | **ĐÁNH GIÁ CUỐI KỲ** | 05/01/2027 | 31/01/2027 | Giai đoạn đánh giá kết thúc môn học |
